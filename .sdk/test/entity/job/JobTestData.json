@@ -1,0 +1,65 @@
+{
+  "existing": {
+    "job": {
+      "JOB00": {
+        "application_url": "s78",
+        "company": "s79",
+        "description": "s7a",
+        "employment_type": "s7b",
+        "id": "JOB00",
+        "industry": "s7d",
+        "location": "s7e",
+        "posted_date": "s7f",
+        "remote": true,
+        "requirement": [],
+        "salary": {},
+        "title": "s83"
+      },
+      "JOB01": {
+        "application_url": "sf0",
+        "company": "sf1",
+        "description": "sf2",
+        "employment_type": "sf3",
+        "id": "JOB01",
+        "industry": "sf5",
+        "location": "sf6",
+        "posted_date": "sf7",
+        "remote": true,
+        "requirement": [],
+        "salary": {},
+        "title": "sfb"
+      },
+      "JOB02": {
+        "application_url": "s168",
+        "company": "s169",
+        "description": "s16a",
+        "employment_type": "s16b",
+        "id": "JOB02",
+        "industry": "s16d",
+        "location": "s16e",
+        "posted_date": "s16f",
+        "remote": true,
+        "requirement": [],
+        "salary": {},
+        "title": "s173"
+      }
+    }
+  },
+  "new": {
+    "job": {
+      "job_ref01": {
+        "application_url": "s1e0",
+        "company": "s1e1",
+        "description": "s1e2",
+        "employment_type": "s1e3",
+        "industry": "s1e5",
+        "location": "s1e6",
+        "posted_date": "s1e7",
+        "remote": true,
+        "requirement": [],
+        "salary": {},
+        "title": "s1eb"
+      }
+    }
+  }
+}

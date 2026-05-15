@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://docs.joinrise.co/"
+      }
+      description: "The Free Jobs API provides access to a comprehensive database of job listings across various industries. It allows users to retrieve job details, including title, location, salary, and requirements, helping candidates find suitable employment opportunities."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.joinrise.co"
+        }
+      ]
+      termsOfService: "https://docs.joinrise.co/"
+      title: "Free Jobs API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

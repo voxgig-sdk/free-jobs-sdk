@@ -1,0 +1,292 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Free Jobs API",
+    "description": "The Free Jobs API provides access to a comprehensive database of job listings across various industries. It allows users to retrieve job details, including title, location, salary, and requirements, helping candidates find suitable employment opportunities.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://docs.joinrise.co/"
+    },
+    "termsOfService": "https://docs.joinrise.co/"
+  },
+  "servers": [
+    {
+      "url": "https://api.joinrise.co",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/jobs": {
+      "get": {
+        "summary": "Get job listings",
+        "description": "Retrieves a list of job postings from the database with various filter options",
+        "operationId": "getJobs",
+        "tags": [
+          "Jobs"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "description": "Filter jobs by location",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Filter jobs by job title or keyword",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "industry",
+            "in": "query",
+            "description": "Filter jobs by industry sector",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "salary_min",
+            "in": "query",
+            "description": "Minimum salary filter",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "salary_max",
+            "in": "query",
+            "description": "Maximum salary filter",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with job listings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Job"
+                      }
+                    },
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "page": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "limit": {
+                          "type": "integer",
+                          "example": 10
+                        },
+                        "total": {
+                          "type": "integer",
+                          "example": 150
+                        },
+                        "total_pages": {
+                          "type": "integer",
+                          "example": 15
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Job": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the job listing",
+            "example": "job_12345"
+          },
+          "title": {
+            "type": "string",
+            "description": "Job title",
+            "example": "Senior Software Engineer"
+          },
+          "company": {
+            "type": "string",
+            "description": "Company name",
+            "example": "Tech Corp Inc."
+          },
+          "location": {
+            "type": "string",
+            "description": "Job location",
+            "example": "San Francisco, CA"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed job description"
+          },
+          "requirements": {
+            "type": "array",
+            "description": "List of job requirements and qualifications",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "5+ years of experience",
+              "Bachelor's degree in Computer Science",
+              "Proficiency in Python and JavaScript"
+            ]
+          },
+          "salary": {
+            "type": "object",
+            "properties": {
+              "min": {
+                "type": "number",
+                "description": "Minimum salary",
+                "example": 100000
+              },
+              "max": {
+                "type": "number",
+                "description": "Maximum salary",
+                "example": 150000
+              },
+              "currency": {
+                "type": "string",
+                "description": "Currency code",
+                "example": "USD"
+              }
+            }
+          },
+          "industry": {
+            "type": "string",
+            "description": "Industry sector",
+            "example": "Technology"
+          },
+          "employment_type": {
+            "type": "string",
+            "description": "Type of employment",
+            "enum": [
+              "full-time",
+              "part-time",
+              "contract",
+              "temporary",
+              "internship"
+            ],
+            "example": "full-time"
+          },
+          "remote": {
+            "type": "boolean",
+            "description": "Whether the position is remote",
+            "example": false
+          },
+          "posted_date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date when the job was posted",
+            "example": "2023-10-15T10:30:00Z"
+          },
+          "application_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to apply for the job",
+            "example": "https://example.com/apply/job_12345"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": false
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "INVALID_PARAMETER"
+              },
+              "message": {
+                "type": "string",
+                "example": "The provided parameter is invalid"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Jobs",
+      "description": "Operations related to job listings"
+    }
+  ]
+}
