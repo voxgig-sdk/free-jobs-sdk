@@ -11,7 +11,7 @@ main: {
       servers: [
         {
           description: "Production server"
-          url: "https://api.joinrise.co"
+          url: "https://api.joinrise.io/api/v1"
         }
       ]
       termsOfService: "https://docs.joinrise.co/"

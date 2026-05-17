@@ -19,7 +19,7 @@ class FreeJobsConfig
         ],
             ],
             "options" => [
-                "base" => "https://api.joinrise.co",
+                "base" => "https://api.joinrise.io/api/v1",
                 "auth" => [
                     "prefix" => "Bearer",
                 ],

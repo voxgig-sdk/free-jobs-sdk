@@ -13,7 +13,7 @@ func MakeConfig() map[string]any {
 			},
 		},
 		"options": map[string]any{
-			"base": "https://api.joinrise.co",
+			"base": "https://api.joinrise.io/api/v1",
 			"auth": map[string]any{
 				"prefix": "Bearer",
 			},
