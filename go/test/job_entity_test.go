@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/free-jobs-sdk"
-	"github.com/voxgig-sdk/free-jobs-sdk/core"
+	sdk "github.com/voxgig-sdk/free-jobs-sdk/go"
+	"github.com/voxgig-sdk/free-jobs-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/free-jobs-sdk/go/utility/struct"
 )
 
 func TestJobEntity(t *testing.T) {

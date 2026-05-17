@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/free-jobs-sdk/core"
+	"github.com/voxgig-sdk/free-jobs-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/free-jobs-sdk/go/utility/struct"
 )
 
 type JobEntity struct {

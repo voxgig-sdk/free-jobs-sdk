@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/free-jobs-sdk/core"
+	"github.com/voxgig-sdk/free-jobs-sdk/go/core"
 )
 
 type BaseFeature struct {

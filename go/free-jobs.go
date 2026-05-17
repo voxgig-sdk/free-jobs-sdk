@@ -1,10 +1,10 @@
 package voxgigfreejobssdk
 
 import (
-	"github.com/voxgig-sdk/free-jobs-sdk/core"
-	"github.com/voxgig-sdk/free-jobs-sdk/entity"
-	"github.com/voxgig-sdk/free-jobs-sdk/feature"
-	_ "github.com/voxgig-sdk/free-jobs-sdk/utility"
+	"github.com/voxgig-sdk/free-jobs-sdk/go/core"
+	"github.com/voxgig-sdk/free-jobs-sdk/go/entity"
+	"github.com/voxgig-sdk/free-jobs-sdk/go/feature"
+	_ "github.com/voxgig-sdk/free-jobs-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
