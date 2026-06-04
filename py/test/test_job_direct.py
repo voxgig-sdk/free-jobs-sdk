@@ -61,14 +61,12 @@ def _job_direct_setup(mockres):
     env = runner.env_override({
         "FREEJOBS_TEST_JOB_ENTID": {},
         "FREEJOBS_TEST_LIVE": "FALSE",
-        "FREEJOBS_APIKEY": "NONE",
     })
 
     live = env.get("FREEJOBS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("FREEJOBS_APIKEY"),
         }
         client = FreeJobsSDK(merged_opts)
         return {

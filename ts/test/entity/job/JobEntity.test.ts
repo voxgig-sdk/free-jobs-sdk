@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'FREE_JOBS_TEST_JOB_ENTID': idmap,
     'FREE_JOBS_TEST_LIVE': 'FALSE',
     'FREE_JOBS_TEST_EXPLAIN': 'FALSE',
-    'FREE_JOBS_APIKEY': 'NONE',
   })
 
   idmap = env['FREE_JOBS_TEST_JOB_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new FreeJobsSDK(merge([
       {
-        apikey: env.FREE_JOBS_APIKEY,
       },
       extra
     ]))

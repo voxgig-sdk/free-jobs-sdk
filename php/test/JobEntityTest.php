@@ -86,7 +86,6 @@ function job_basic_setup($extra)
         "FREEJOBS_TEST_JOB_ENTID" => $idmap,
         "FREEJOBS_TEST_LIVE" => "FALSE",
         "FREEJOBS_TEST_EXPLAIN" => "FALSE",
-        "FREEJOBS_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +97,6 @@ function job_basic_setup($extra)
     if ($env["FREEJOBS_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["FREEJOBS_APIKEY"],
             ],
             $extra ?? [],
         ]);

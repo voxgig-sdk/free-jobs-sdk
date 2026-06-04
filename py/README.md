@@ -23,12 +23,9 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
-import os
 from freejobs_sdk import FreeJobsSDK
 
-client = FreeJobsSDK({
-    "apikey": os.environ.get("FREE-JOBS_APIKEY"),
-})
+client = FreeJobsSDK({})
 ```
 
 ### 2. List jobs
@@ -121,7 +118,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FREE-JOBS_TEST_LIVE=TRUE
-FREE-JOBS_APIKEY=<your-key>
 ```
 
 Then run:
@@ -145,7 +141,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |
