@@ -1,22 +1,8 @@
 # FreeJobs SDK
 
-Browse publicly listed tech and startup job postings from the Rise job-search platform
+Free Jobs API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Free Jobs API
-
-[Rise](https://joinrise.co/) is a job-search platform focused on tech, startup, and adjacent roles, run by Work Rise LLC out of New York City. The platform aggregates job listings across categories such as engineering, design, product, marketing, sales, and data, with an emphasis on remote, entry-level, internship, and visa-sponsored opportunities.
-
-The Free Jobs API exposes Rise's public job-postings feed at `https://api.joinrise.io/api/v1`, listed on [Free Public APIs](https://freepublicapis.com/free-jobs-api). Each posting typically includes a title, location, salary information (where provided by the employer), and role requirements.
-
-What you get from the API:
-
-- A paginated list of public job postings via `GET /jobs/public` with `page`, `limit`, `sort`, `sortedBy`, and `jobLoc` query parameters
-- Job metadata such as title, location, salary, and requirements
-- Sort by fields like `createdAt` in ascending or descending order
-
-Operational notes: the endpoint is open (no API key documented), CORS is enabled, and observed average response time is around 1.8 seconds. Rate limits and uptime guarantees are not published, so treat the API as best-effort.
 
 ## Try it
 
@@ -50,29 +36,31 @@ gem install free-jobs-sdk
 luarocks install free-jobs-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { FreeJobsSDK } from 'free-jobs'
 
-const client = new FreeJobsSDK({})
+const client = new FreeJobsSDK({
+  apikey: process.env.FREE-JOBS_APIKEY,
+})
 
 // List all jobs
 const jobs = await client.Job().list()
+console.log(jobs.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -102,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Job** | A public job posting from the Rise platform, including title, location, salary, and requirements, served from `GET /jobs/public` with pagination and sort query parameters. | `/jobs` |
+| **Job** |  | `/jobs` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from freejobs_sdk import FreeJobsSDK
 
-client = FreeJobsSDK({})
+client = FreeJobsSDK({
+    "apikey": os.environ.get("FREE-JOBS_APIKEY"),
+})
 
 # List all jobs
-jobs, err = client.Job(None).list(None, None)
+jobs, err = client.Job().list()
+print(jobs)
 ```
 
 ### PHP
@@ -126,10 +118,13 @@ jobs, err = client.Job(None).list(None, None)
 <?php
 require_once 'freejobs_sdk.php';
 
-$client = new FreeJobsSDK([]);
+$client = new FreeJobsSDK([
+    "apikey" => getenv("FREE-JOBS_APIKEY"),
+]);
 
 // List all jobs
-[$jobs, $err] = $client->Job(null)->list(null, null);
+[$jobs, $err] = $client->Job()->list();
+print_r($jobs);
 ```
 
 ### Golang
@@ -137,10 +132,13 @@ $client = new FreeJobsSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/free-jobs-sdk/go"
 
-client := sdk.NewFreeJobsSDK(map[string]any{})
+client := sdk.NewFreeJobsSDK(map[string]any{
+    "apikey": os.Getenv("FREE-JOBS_APIKEY"),
+})
 
 // List all jobs
 jobs, err := client.Job(nil).List(nil, nil)
+fmt.Println(jobs)
 ```
 
 ### Ruby
@@ -148,10 +146,13 @@ jobs, err := client.Job(nil).List(nil, nil)
 ```ruby
 require_relative "FreeJobs_sdk"
 
-client = FreeJobsSDK.new({})
+client = FreeJobsSDK.new({
+  "apikey" => ENV["FREE-JOBS_APIKEY"],
+})
 
 # List all jobs
-jobs, err = client.Job(nil).list(nil, nil)
+jobs, err = client.Job().list
+puts jobs
 ```
 
 ### Lua
@@ -159,10 +160,13 @@ jobs, err = client.Job(nil).list(nil, nil)
 ```lua
 local sdk = require("free-jobs_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("FREE-JOBS_APIKEY"),
+})
 
 -- List all jobs
-local jobs, err = client:Job(nil):list(nil, nil)
+local jobs, err = client:Job():list()
+print(jobs)
 ```
 
 ## Unit testing in offline mode
@@ -181,25 +185,21 @@ const result = await client.Job().load({ id: 'test01' })
 ### Python
 
 ```python
-client = FreeJobsSDK.test(None, None)
-result, err = client.Job(None).load(
-    {"id": "test01"}, None
-)
+client = FreeJobsSDK.test()
+result, err = client.Job().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = FreeJobsSDK::test(null, null);
-[$result, $err] = $client->Job(null)->load(
-    ["id" => "test01"], null
-);
+$client = FreeJobsSDK::test();
+[$result, $err] = $client->Job()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Job(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -208,19 +208,15 @@ result, err := client.Job(nil).Load(
 ### Ruby
 
 ```ruby
-client = FreeJobsSDK.test(nil, nil)
-result, err = client.Job(nil).load(
-  { "id" => "test01" }, nil
-)
+client = FreeJobsSDK.test
+result, err = client.Job().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Job(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Job():load({ id = "test01" })
 ```
 
 ## How it works
@@ -324,16 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Free Jobs API
-
-- Upstream: [https://joinrise.co/](https://joinrise.co/)
-- API docs: [https://docs.joinrise.co/](https://docs.joinrise.co/)
-
-- No explicit licence is published for the public jobs endpoint
-- Job listings are sourced and curated by Work Rise LLC (joinrise.co) and remain the property of the originating employers
-- Treat returned data as third-party content: attribute Rise where appropriate and review their site terms before redistributing or commercial reuse
-- No authentication is required for the public endpoint, but no rate limits or SLAs are documented
 
 ---
 

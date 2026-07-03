@@ -92,6 +92,7 @@ def _job_basic_setup(extra):
         "FREEJOBS_TEST_JOB_ENTID": idmap,
         "FREEJOBS_TEST_LIVE": "FALSE",
         "FREEJOBS_TEST_EXPLAIN": "FALSE",
+        "FREEJOBS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ def _job_basic_setup(extra):
     if env.get("FREEJOBS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("FREEJOBS_APIKEY"),
             },
             extra or {},
         ])

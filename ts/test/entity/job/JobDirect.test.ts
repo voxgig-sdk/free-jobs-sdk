@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'FREEJOBS_TEST_JOB_ENTID': {},
     'FREEJOBS_TEST_LIVE': 'FALSE',
+    'FREEJOBS_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.FREEJOBS_TEST_LIVE
 
   if (live) {
     const client = new FreeJobsSDK({
+      apikey: env.FREEJOBS_APIKEY,
     })
 
     let idmap: any = env['FREEJOBS_TEST_JOB_ENTID']

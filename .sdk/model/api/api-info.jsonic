@@ -17,29 +17,7 @@ main: {
       termsOfService: "https://docs.joinrise.co/"
       title: "Free Jobs API"
       version: "1.0.0"
-      tagline: "Browse publicly listed tech and startup job postings from the Rise job-search platform"
-      homepage: "https://joinrise.co/"
-      docs_url: "https://docs.joinrise.co/"
-      license_short: "No published licence; treat as third-party data and check Rise's terms before reuse"
-      license_md: `- No explicit licence is published for the public jobs endpoint
-- Job listings are sourced and curated by Work Rise LLC (joinrise.co) and remain the property of the originating employers
-- Treat returned data as third-party content: attribute Rise where appropriate and review their site terms before redistributing or commercial reuse
-- No authentication is required for the public endpoint, but no rate limits or SLAs are documented`
-      about_md: `[Rise](https://joinrise.co/) is a job-search platform focused on tech, startup, and adjacent roles, run by Work Rise LLC out of New York City. The platform aggregates job listings across categories such as engineering, design, product, marketing, sales, and data, with an emphasis on remote, entry-level, internship, and visa-sponsored opportunities.
-
-The Free Jobs API exposes Rise's public job-postings feed at \`https://api.joinrise.io/api/v1\`, listed on [Free Public APIs](https://freepublicapis.com/free-jobs-api). Each posting typically includes a title, location, salary information (where provided by the employer), and role requirements.
-
-What you get from the API:
-
-- A paginated list of public job postings via \`GET /jobs/public\` with \`page\`, \`limit\`, \`sort\`, \`sortedBy\`, and \`jobLoc\` query parameters
-- Job metadata such as title, location, salary, and requirements
-- Sort by fields like \`createdAt\` in ascending or descending order
-
-Operational notes: the endpoint is open (no API key documented), CORS is enabled, and observed average response time is around 1.8 seconds. Rate limits and uptime guarantees are not published, so treat the API as best-effort.`
-      entity_desc: {
-        job: "A public job posting from the Rise platform, including title, location, salary, and requirements, served from `GET /jobs/public` with pagination and sort query parameters."
-      }
-      auth: false
     }
   }
 }
+
