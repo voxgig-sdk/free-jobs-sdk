@@ -10,7 +10,7 @@ The Python SDK for the FreeJobs API — an entity-oriented client following Pyth
 
 ## Install
 ```bash
-pip install free-jobs-sdk
+pip install voxgig-sdk-free-jobs
 ```
 
 Or install from source:

@@ -10,7 +10,7 @@ The Lua SDK for the FreeJobs API — an entity-oriented client using Lua convent
 
 ## Install
 ```bash
-luarocks install free-jobs-sdk
+luarocks install voxgig-sdk-free-jobs
 ```
 
 If the module is not yet published, add the source directory to

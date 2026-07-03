@@ -10,13 +10,13 @@ The Ruby SDK for the FreeJobs API — an entity-oriented client using idiomatic 
 
 ## Install
 ```bash
-gem install free-jobs-sdk
+gem install voxgig-sdk-free-jobs
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "free-jobs-sdk"
+gem "voxgig-sdk-free-jobs"
 ```
 
 Then run:

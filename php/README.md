@@ -10,7 +10,7 @@ The PHP SDK for the FreeJobs API — an entity-oriented client using PHP convent
 
 ## Install
 ```bash
-composer require voxgig/free-jobs-sdk
+composer require voxgig-sdk/free-jobs
 ```
 
 

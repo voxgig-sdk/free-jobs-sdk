@@ -10,7 +10,7 @@ The TypeScript SDK for the FreeJobs API — a type-safe, entity-oriented client 
 
 ## Install
 ```bash
-npm install free-jobs
+npm install @voxgig-sdk/free-jobs
 ```
 ## Tutorial: your first API call
 
