@@ -43,8 +43,7 @@ class JobEntityTest < Minitest::Test
     job_ref01_ent = client.Job(nil)
     job_ref01_match = {}
 
-    job_ref01_list_result, err = job_ref01_ent.list(job_ref01_match, nil)
-    assert_nil err
+    job_ref01_list_result = job_ref01_ent.list(job_ref01_match, nil)
     assert job_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def job_basic_setup(extra)
     "FREEJOBS_TEST_JOB_ENTID" => idmap,
     "FREEJOBS_TEST_LIVE" => "FALSE",
     "FREEJOBS_TEST_EXPLAIN" => "FALSE",
-    "FREEJOBS_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def job_basic_setup(extra)
   if env["FREEJOBS_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["FREEJOBS_APIKEY"],
       },
       extra || {},
     ])

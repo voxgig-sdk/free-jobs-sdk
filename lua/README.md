@@ -9,12 +9,9 @@ The Lua SDK for the FreeJobs API — an entity-oriented client using Lua convent
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-free-jobs
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/free-jobs-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("free-jobs_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("FREE-JOBS_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List jobs
 
 ```lua
-local result, err = client:Job():list()
+local result, err = client:job():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:FreeJobs():load({ id = "test01" })
+local result, err = client:job():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -126,8 +121,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-FREE-JOBS_TEST_LIVE=TRUE
-FREE-JOBS_APIKEY=<your-key>
+FREE_JOBS_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -238,7 +231,7 @@ API path: `/jobs`
 
 ### Job
 
-Create an instance: `const job = client.Job()`
+Create an instance: `const job = client.job`
 
 #### Operations
 
@@ -266,7 +259,7 @@ Create an instance: `const job = client.Job()`
 #### Example: List
 
 ```ts
-const jobs = await client.Job().list()
+const jobs = await client.job.list()
 ```
 
 
@@ -341,11 +334,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local job = client:job()
+job:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- job:data_get() now returns the loaded job data
+-- job:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

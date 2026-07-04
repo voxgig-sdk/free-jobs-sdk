@@ -93,14 +93,12 @@ func jobDirectSetup(mockres any) *jobDirectSetupResult {
 	env := envOverride(map[string]any{
 		"FREEJOBS_TEST_JOB_ENTID": map[string]any{},
 		"FREEJOBS_TEST_LIVE":    "FALSE",
-		"FREEJOBS_APIKEY":       "NONE",
 	})
 
 	live := env["FREEJOBS_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["FREEJOBS_APIKEY"],
 		}
 		client := sdk.NewFreeJobsSDK(mergedOpts)
 

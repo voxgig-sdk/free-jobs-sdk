@@ -245,6 +245,9 @@ func (sdk *FreeJobsSDK) Direct(fetchargs map[string]any) (map[string]any, error)
 }
 
 
+// Job returns a Job entity bound to this client.
+// Idiomatic usage: client.Job(nil).List(nil, nil) or
+// client.Job(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FreeJobsSDK) Job(data map[string]any) FreeJobsEntity {
 	return NewJobEntityFunc(sdk, data)
 }
