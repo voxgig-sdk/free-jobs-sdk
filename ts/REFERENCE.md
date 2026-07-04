@@ -109,7 +109,7 @@ Alias for `FreeJobsSDK.test()`.
 ## JobEntity
 
 ```ts
-const job = client.job
+const job = client.Job()
 ```
 
 ### Fields
@@ -136,7 +136,7 @@ const job = client.job
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.job.list()
+const results = await client.Job().list()
 ```
 
 ### Common Methods

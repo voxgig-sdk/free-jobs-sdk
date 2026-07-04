@@ -31,14 +31,16 @@ from freejobs_sdk import FreeJobsSDK
 client = FreeJobsSDK()
 ```
 
-### 2. List jobs
+### 2. List job records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.job.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    jobs = client.Job().list({})
+    for job in jobs:
+        print(job)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = FreeJobsSDK.test()
 
-result = client.job.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+job = client.Job().load({"id": "test01"})
+# job contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -231,7 +234,7 @@ API path: `/jobs`
 
 ### Job
 
-Create an instance: `const job = client.job`
+Create an instance: `job = client.Job()`
 
 #### Operations
 
@@ -258,8 +261,8 @@ Create an instance: `const job = client.job`
 
 #### Example: List
 
-```ts
-const jobs = await client.job.list()
+```python
+jobs = client.Job().list({})
 ```
 
 
@@ -333,7 +336,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-job = client.job
+job = client.Job()
 job.load({"id": "example_id"})
 
 # job.data_get() now returns the loaded job data

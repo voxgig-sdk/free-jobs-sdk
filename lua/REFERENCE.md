@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## JobEntity
 
 ```lua
-local job = client:job(nil)
+local job = client:Job(nil)
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ local job = client:job(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:job():list()
+local results, err = client:Job():list()
 ```
 
 ### Common Methods

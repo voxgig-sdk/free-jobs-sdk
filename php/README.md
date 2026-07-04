@@ -29,18 +29,16 @@ require_once 'freejobs_sdk.php';
 $client = new FreeJobsSDK();
 ```
 
-### 2. List jobs
+### 2. List job records
 
 ```php
 try {
-    $result = $client->job()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Job records — iterate directly.
+    $jobs = $client->Job()->list();
+    foreach ($jobs as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = FreeJobsSDK::test();
+$client = FreeJobsSDK::test([
+    "entity" => ["job" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->job()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$job = $client->Job()->load(["id" => "test01"]);
+print_r($job);
 ```
 
 ### Use a custom fetch function
@@ -239,7 +241,7 @@ API path: `/jobs`
 
 ### Job
 
-Create an instance: `const job = client.job`
+Create an instance: `$job = $client->Job();`
 
 #### Operations
 
@@ -266,8 +268,9 @@ Create an instance: `const job = client.job`
 
 #### Example: List
 
-```ts
-const jobs = await client.job.list()
+```php
+// list() returns an array of Job records (throws on error).
+$jobs = $client->Job()->list();
 ```
 
 
@@ -342,7 +345,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$job = $client->job();
+$job = $client->Job();
 $job->load(["id" => "example_id"]);
 
 // $job->dataGet() now returns the loaded job data
