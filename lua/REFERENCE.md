@@ -90,18 +90,18 @@ local job = client:Job(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `application_url` | ``$STRING`` | No |  |
-| `company` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `employment_type` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `industry` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `posted_date` | ``$STRING`` | No |  |
-| `remote` | ``$BOOLEAN`` | No |  |
-| `requirement` | ``$ARRAY`` | No |  |
-| `salary` | ``$OBJECT`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `application_url` | `string` | No |  |
+| `company` | `string` | No |  |
+| `description` | `string` | No |  |
+| `employment_type` | `string` | No |  |
+| `id` | `string` | No |  |
+| `industry` | `string` | No |  |
+| `location` | `string` | No |  |
+| `posted_date` | `string` | No |  |
+| `remote` | `boolean` | No |  |
+| `requirement` | `table` | No |  |
+| `salary` | `table` | No |  |
+| `title` | `string` | No |  |
 
 ### Operations
 

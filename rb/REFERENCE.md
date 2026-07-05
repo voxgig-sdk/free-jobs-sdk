@@ -8,7 +8,7 @@ Complete API reference for the FreeJobs Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'free-jobs_sdk'
+require_relative 'FreeJobs_sdk'
 
 client = FreeJobsSDK.new(options)
 ```
@@ -93,27 +93,27 @@ job = client.Job
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `application_url` | ``$STRING`` | No |  |
-| `company` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `employment_type` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `industry` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `posted_date` | ``$STRING`` | No |  |
-| `remote` | ``$BOOLEAN`` | No |  |
-| `requirement` | ``$ARRAY`` | No |  |
-| `salary` | ``$OBJECT`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `application_url` | `String` | No |  |
+| `company` | `String` | No |  |
+| `description` | `String` | No |  |
+| `employment_type` | `String` | No |  |
+| `id` | `String` | No |  |
+| `industry` | `String` | No |  |
+| `location` | `String` | No |  |
+| `posted_date` | `String` | No |  |
+| `remote` | `Boolean` | No |  |
+| `requirement` | `Array` | No |  |
+| `salary` | `Hash` | No |  |
+| `title` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Job.list(nil)
+results = client.Job.list
 ```
 
 ### Common Methods

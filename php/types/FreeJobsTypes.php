@@ -29,7 +29,7 @@ class Job
     public ?string $title = null;
 }
 
-/** Match filter for Job#list (any subset of Job fields). */
+/** Request payload for Job#list. */
 class JobListMatch
 {
     public ?string $application_url = null;

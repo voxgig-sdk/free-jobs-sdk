@@ -24,8 +24,7 @@ type Job struct {
 	Title *string `json:"title,omitempty"`
 }
 
-// JobListMatch mirrors the job fields as an all-optional match
-// filter (Go analog of Partial<Job>).
+// JobListMatch is the typed request payload for Job.ListTyped.
 type JobListMatch struct {
 	ApplicationUrl *string `json:"application_url,omitempty"`
 	Company *string `json:"company,omitempty"`

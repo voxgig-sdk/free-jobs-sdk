@@ -61,7 +61,7 @@ Job = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Job#list (any subset of Job fields).
+# Request payload for Job#list.
 #
 # @!attribute [rw] application_url
 #   @return [String, nil]

@@ -8,7 +8,7 @@ Complete API reference for the FreeJobs Python SDK.
 ### Constructor
 
 ```python
-from free-jobs_sdk import FreeJobsSDK
+from freejobs_sdk import FreeJobsSDK
 
 client = FreeJobsSDK(options)
 ```
@@ -87,27 +87,27 @@ job = client.Job()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `application_url` | ``$STRING`` | No |  |
-| `company` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `employment_type` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `industry` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `posted_date` | ``$STRING`` | No |  |
-| `remote` | ``$BOOLEAN`` | No |  |
-| `requirement` | ``$ARRAY`` | No |  |
-| `salary` | ``$OBJECT`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `application_url` | `str` | No |  |
+| `company` | `str` | No |  |
+| `description` | `str` | No |  |
+| `employment_type` | `str` | No |  |
+| `id` | `str` | No |  |
+| `industry` | `str` | No |  |
+| `location` | `str` | No |  |
+| `posted_date` | `str` | No |  |
+| `remote` | `bool` | No |  |
+| `requirement` | `list` | No |  |
+| `salary` | `dict` | No |  |
+| `title` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Job().list({})
+results = client.Job().list()
 for job in results:
     print(job)
 ```

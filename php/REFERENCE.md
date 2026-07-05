@@ -8,7 +8,7 @@ Complete API reference for the FreeJobs PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/free-jobs_sdk.php';
+require_once __DIR__ . '/freejobs_sdk.php';
 
 $client = new FreeJobsSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = FreeJobsSDK::test();
 
 Create a new `JobEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): FreeJobsUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,44 +92,44 @@ $job = $client->Job();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `application_url` | ``$STRING`` | No |  |
-| `company` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `employment_type` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `industry` | ``$STRING`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `posted_date` | ``$STRING`` | No |  |
-| `remote` | ``$BOOLEAN`` | No |  |
-| `requirement` | ``$ARRAY`` | No |  |
-| `salary` | ``$OBJECT`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `application_url` | `string` | No |  |
+| `company` | `string` | No |  |
+| `description` | `string` | No |  |
+| `employment_type` | `string` | No |  |
+| `id` | `string` | No |  |
+| `industry` | `string` | No |  |
+| `location` | `string` | No |  |
+| `posted_date` | `string` | No |  |
+| `remote` | `bool` | No |  |
+| `requirement` | `array` | No |  |
+| `salary` | `array` | No |  |
+| `title` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Job()->list([]);
+$results = $client->Job()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -138,7 +138,7 @@ Set the entity match criteria.
 Create a new `JobEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
