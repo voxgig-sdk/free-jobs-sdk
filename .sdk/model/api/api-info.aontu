@@ -15,10 +15,10 @@ main: {
           url: "https://api.joinrise.io/api/v1"
         }
       ]
+      summary: "The Free Jobs API provides access to a comprehensive database of job listings across various industries."
       termsOfService: "https://docs.joinrise.co/"
       title: "Free Jobs API"
       version: "1.0.0"
+      website: "https://joinrise.io"
     }
   }
-}
-

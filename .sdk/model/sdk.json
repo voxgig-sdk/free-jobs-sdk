@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -331,15 +328,18 @@
           "url": "https://docs.joinrise.co/"
         },
         "description": "The Free Jobs API provides access to a comprehensive database of job listings across various industries. It allows users to retrieve job details, including title, location, salary, and requirements, helping candidates find suitable employment opportunities.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://api.joinrise.io/api/v1"
           }
         ],
+        "summary": "The Free Jobs API provides access to a comprehensive database of job listings across various industries.",
         "termsOfService": "https://docs.joinrise.co/",
         "title": "Free Jobs API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://joinrise.io"
       },
       "option": {},
       "target": {
@@ -392,6 +392,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -442,6 +445,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
