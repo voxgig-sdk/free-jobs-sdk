@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- FreeJobs SDK exists test
 
 local sdk = require("free-jobs_sdk")
 
