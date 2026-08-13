@@ -24,7 +24,7 @@ class Job
     public ?string $location = null;
     public ?string $posted_date = null;
     public ?bool $remote = null;
-    public ?array $requirement = null;
+    public ?array $requirements = null;
     public ?array $salary = null;
     public ?string $title = null;
 }
@@ -41,7 +41,7 @@ class JobListMatch
     public ?string $location = null;
     public ?string $posted_date = null;
     public ?bool $remote = null;
-    public ?array $requirement = null;
+    public ?array $requirements = null;
     public ?array $salary = null;
     public ?string $title = null;
 }

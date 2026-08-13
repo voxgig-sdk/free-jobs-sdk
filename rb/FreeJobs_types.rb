@@ -37,7 +37,7 @@
 # @!attribute [rw] remote
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] requirement
+# @!attribute [rw] requirements
 #   @return [Array, nil]
 #
 # @!attribute [rw] salary
@@ -55,7 +55,7 @@ Job = Struct.new(
   :location,
   :posted_date,
   :remote,
-  :requirement,
+  :requirements,
   :salary,
   :title,
   keyword_init: true
@@ -90,7 +90,7 @@ Job = Struct.new(
 # @!attribute [rw] remote
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] requirement
+# @!attribute [rw] requirements
 #   @return [Array, nil]
 #
 # @!attribute [rw] salary
@@ -108,7 +108,7 @@ JobListMatch = Struct.new(
   :location,
   :posted_date,
   :remote,
-  :requirement,
+  :requirements,
   :salary,
   :title,
   keyword_init: true

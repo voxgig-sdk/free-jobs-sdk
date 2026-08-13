@@ -15,7 +15,7 @@ export interface Job {
   location?: string
   posted_date?: string
   remote?: boolean
-  requirement?: any[]
+  requirements?: any[]
   salary?: Record<string, any>
   title?: string
 }
@@ -30,7 +30,7 @@ export interface JobListMatch {
   location?: string
   posted_date?: string
   remote?: boolean
-  requirement?: any[]
+  requirements?: any[]
   salary?: Record<string, any>
   title?: string
 }

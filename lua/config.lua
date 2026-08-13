@@ -89,7 +89,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "requirement",
+            ["name"] = "requirements",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 9,
@@ -179,6 +179,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/jobs",
                 ["parts"] = {

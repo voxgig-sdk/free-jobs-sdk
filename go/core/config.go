@@ -89,7 +89,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "requirement",
+						"name": "requirements",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 9,
@@ -179,6 +179,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/jobs",
 								"parts": []any{
@@ -202,7 +203,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

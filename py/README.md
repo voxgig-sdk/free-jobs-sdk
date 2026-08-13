@@ -124,7 +124,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = FreeJobsSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 job = client.Job().list()
 # job contains the mock response record
 ```
@@ -220,7 +221,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -251,7 +252,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `location` |  |
 | `posted_date` |  |
 | `remote` |  |
-| `requirement` |  |
+| `requirements` |  |
 | `salary` |  |
 | `title` |  |
 
@@ -287,7 +288,7 @@ Create an instance: `job = client.Job()`
 | `location` | `str` |  |
 | `posted_date` | `str` |  |
 | `remote` | `bool` |  |
-| `requirement` | `list` |  |
+| `requirements` | `list` |  |
 | `salary` | `dict` |  |
 | `title` | `str` |  |
 

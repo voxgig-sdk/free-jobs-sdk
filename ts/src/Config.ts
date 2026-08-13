@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'FreeJobs',
   }
 
 
@@ -119,7 +119,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "requirement",
+          "name": "requirements",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 9
@@ -209,6 +209,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/jobs",
               "parts": [

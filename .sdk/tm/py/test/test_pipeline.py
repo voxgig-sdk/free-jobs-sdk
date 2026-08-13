@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import FreeJobsSDK
-from core.error import FreeJobsError
-from core.result import FreeJobsResult
-from core.response import FreeJobsResponse
-from core.spec import FreeJobsSpec
-from feature.base_feature import FreeJobsBaseFeature
+from projectname_sdk.core.error import FreeJobsError
+from projectname_sdk.core.result import FreeJobsResult
+from projectname_sdk.core.response import FreeJobsResponse
+from projectname_sdk.core.spec import FreeJobsSpec
+from projectname_sdk.feature.base_feature import FreeJobsBaseFeature
 
 
 def _client():

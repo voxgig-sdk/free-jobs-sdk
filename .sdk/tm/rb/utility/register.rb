@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ FreeJobsUtility.registrar = ->(u) {
   u.prepare_params = FreeJobsUtilities::PrepareParams
   u.prepare_path = FreeJobsUtilities::PreparePath
   u.prepare_query = FreeJobsUtilities::PrepareQuery
+  u.graphql_body = FreeJobsUtilities::GraphqlBody
+  u.graphql_errors = FreeJobsUtilities::GraphqlErrors
   u.result_basic = FreeJobsUtilities::ResultBasic
   u.result_body = FreeJobsUtilities::ResultBody
   u.result_headers = FreeJobsUtilities::ResultHeaders

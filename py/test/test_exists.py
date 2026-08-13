@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# FreeJobs SDK exists test
 
 import pytest
 from freejobs_sdk import FreeJobsSDK

@@ -61,11 +61,11 @@ function job_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["FREEJOBS_TEST_JOB_ENTID"] = {},
-    ["FREEJOBS_TEST_LIVE"] = "FALSE",
+    ["FREE_JOBS_TEST_JOB_ENTID"] = {},
+    ["FREE_JOBS_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["FREEJOBS_TEST_LIVE"] == "TRUE"
+  local live = env["FREE_JOBS_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

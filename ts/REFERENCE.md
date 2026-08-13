@@ -125,7 +125,7 @@ const job = client.Job()
 | `location` | `string` | No |  |
 | `posted_date` | `string` | No |  |
 | `remote` | `boolean` | No |  |
-| `requirement` | `any[]` | No |  |
+| `requirements` | `any[]` | No |  |
 | `salary` | `Record<string, any>` | No |  |
 | `title` | `string` | No |  |
 

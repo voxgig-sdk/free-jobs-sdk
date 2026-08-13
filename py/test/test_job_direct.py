@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from freejobs_sdk.utility.voxgig_struct import voxgig_struct as vs
 from freejobs_sdk import FreeJobsSDK
-from core import helpers
+from freejobs_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _job_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "FREEJOBS_TEST_JOB_ENTID": {},
-        "FREEJOBS_TEST_LIVE": "FALSE",
+        "FREE_JOBS_TEST_JOB_ENTID": {},
+        "FREE_JOBS_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("FREEJOBS_TEST_LIVE") == "TRUE"
+    live = env.get("FREE_JOBS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

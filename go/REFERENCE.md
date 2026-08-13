@@ -107,7 +107,7 @@ fmt.Println(job.GetName()) // "job"
 | `location` | `string` | No |  |
 | `posted_date` | `string` | No |  |
 | `remote` | `bool` | No |  |
-| `requirement` | `[]any` | No |  |
+| `requirements` | `[]any` | No |  |
 | `salary` | `map[string]any` | No |  |
 | `title` | `string` | No |  |
 

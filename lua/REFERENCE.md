@@ -99,7 +99,7 @@ local job = client:Job(nil)
 | `location` | `string` | No |  |
 | `posted_date` | `string` | No |  |
 | `remote` | `boolean` | No |  |
-| `requirement` | `table` | No |  |
+| `requirements` | `table` | No |  |
 | `salary` | `table` | No |  |
 | `title` | `string` | No |  |
 

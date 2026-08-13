@@ -95,7 +95,7 @@ class FreeJobsConfig
             ],
             [
               'active' => true,
-              'name' => 'requirement',
+              'name' => 'requirements',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 9,
@@ -185,6 +185,7 @@ class FreeJobsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/jobs',
                   'parts' => [

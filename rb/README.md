@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = FreeJobsSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 job = client.Job.list()
 puts job
 ```
@@ -245,7 +246,7 @@ returns a result `Hash` with these keys:
 | `location` |  |
 | `posted_date` |  |
 | `remote` |  |
-| `requirement` |  |
+| `requirements` |  |
 | `salary` |  |
 | `title` |  |
 
@@ -281,7 +282,7 @@ Create an instance: `job = client.Job`
 | `location` | `String` |  |
 | `posted_date` | `String` |  |
 | `remote` | `Boolean` |  |
-| `requirement` | `Array` |  |
+| `requirements` | `Array` |  |
 | `salary` | `Hash` |  |
 | `title` | `String` |  |
 

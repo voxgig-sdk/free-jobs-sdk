@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ FreeJobsUtility::setRegistrar(function (FreeJobsUtility $u): void {
     $u->prepare_params = [FreeJobsPrepareParams::class, 'call'];
     $u->prepare_path = [FreeJobsPreparePath::class, 'call'];
     $u->prepare_query = [FreeJobsPrepareQuery::class, 'call'];
+    $u->graphql_body = [FreeJobsGraphql::class, 'body'];
+    $u->graphql_errors = [FreeJobsGraphql::class, 'errors'];
     $u->result_basic = [FreeJobsResultBasic::class, 'call'];
     $u->result_body = [FreeJobsResultBody::class, 'call'];
     $u->result_headers = [FreeJobsResultHeaders::class, 'call'];

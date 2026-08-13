@@ -23,8 +23,8 @@ module FreeJobsTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("FREEJOBS_TEST_LIVE")
-    override = getenv("FREEJOBS_TEST_OVERRIDE")
+    live = getenv("FREE_JOBS_TEST_LIVE")
+    override = getenv("FREE_JOBS_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module FreeJobsTestRunner
       end
     end
 
-    explain = getenv("FREEJOBS_TEST_EXPLAIN")
-    m["FREEJOBS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("FREE_JOBS_TEST_EXPLAIN")
+    m["FREE_JOBS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

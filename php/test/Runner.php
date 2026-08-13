@@ -43,8 +43,8 @@ class FreeJobsTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('FREEJOBS_TEST_LIVE');
-        $override = self::getenv('FREEJOBS_TEST_OVERRIDE');
+        $live = self::getenv('FREE_JOBS_TEST_LIVE');
+        $override = self::getenv('FREE_JOBS_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class FreeJobsTestRunner
             }
         }
 
-        $explain = self::getenv('FREEJOBS_TEST_EXPLAIN');
+        $explain = self::getenv('FREE_JOBS_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['FREEJOBS_TEST_EXPLAIN'] = $explain;
+            $m['FREE_JOBS_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

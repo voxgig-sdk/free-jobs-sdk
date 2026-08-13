@@ -35,7 +35,9 @@ const client = new FreeJobsSDK()
 
 ### 2. List job records
 
-`list()` resolves to an array of Job objects — iterate it directly:
+`list()` resolves to an array of Job ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const jobs = await client.Job().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = FreeJobsSDK.test()
 
 const job = await client.Job().list()
-// job is a bare entity populated with mock response data
+// job is the entity, populated with mock response data
+// — call job.data() for the record itself
 console.log(job)
 ```
 
@@ -293,7 +296,7 @@ The `prepare()` method returns:
 | `location` |  |
 | `posted_date` |  |
 | `remote` |  |
-| `requirement` |  |
+| `requirements` |  |
 | `salary` |  |
 | `title` |  |
 
@@ -329,7 +332,7 @@ Create an instance: `const job = client.Job()`
 | `location` | `string` |  |
 | `posted_date` | `string` |  |
 | `remote` | `boolean` |  |
-| `requirement` | `any[]` |  |
+| `requirements` | `any[]` |  |
 | `salary` | `Record<string, any>` |  |
 | `title` | `string` |  |
 

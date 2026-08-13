@@ -102,7 +102,7 @@ job = client.Job
 | `location` | `String` | No |  |
 | `posted_date` | `String` | No |  |
 | `remote` | `Boolean` | No |  |
-| `requirement` | `Array` | No |  |
+| `requirements` | `Array` | No |  |
 | `salary` | `Hash` | No |  |
 | `title` | `String` | No |  |
 

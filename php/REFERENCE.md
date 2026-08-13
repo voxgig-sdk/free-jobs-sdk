@@ -101,7 +101,7 @@ $job = $client->Job();
 | `location` | `string` | No |  |
 | `posted_date` | `string` | No |  |
 | `remote` | `bool` | No |  |
-| `requirement` | `array` | No |  |
+| `requirements` | `array` | No |  |
 | `salary` | `array` | No |  |
 | `title` | `string` | No |  |
 

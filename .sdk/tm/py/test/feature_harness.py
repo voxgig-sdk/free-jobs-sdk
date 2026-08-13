@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import FreeJobsControl
-from core.error import FreeJobsError
-from core.result import FreeJobsResult
-from core.spec import FreeJobsSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import FreeJobsControl
+from projectname_sdk.core.error import FreeJobsError
+from projectname_sdk.core.result import FreeJobsResult
+from projectname_sdk.core.spec import FreeJobsSpec
 
 
 # True when this SDK was generated with the named feature.

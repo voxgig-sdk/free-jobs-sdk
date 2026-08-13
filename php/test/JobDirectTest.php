@@ -66,11 +66,11 @@ function job_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "FREEJOBS_TEST_JOB_ENTID" => [],
-        "FREEJOBS_TEST_LIVE" => "FALSE",
+        "FREE_JOBS_TEST_JOB_ENTID" => [],
+        "FREE_JOBS_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["FREEJOBS_TEST_LIVE"] === "TRUE";
+    $live = $env["FREE_JOBS_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

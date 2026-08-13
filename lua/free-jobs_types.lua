@@ -16,7 +16,7 @@
 ---@field location? string
 ---@field posted_date? string
 ---@field remote? boolean
----@field requirement? table
+---@field requirements? table
 ---@field salary? table
 ---@field title? string
 
@@ -30,7 +30,7 @@
 ---@field location? string
 ---@field posted_date? string
 ---@field remote? boolean
----@field requirement? table
+---@field requirements? table
 ---@field salary? table
 ---@field title? string
 

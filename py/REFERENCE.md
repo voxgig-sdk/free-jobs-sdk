@@ -96,7 +96,7 @@ job = client.Job()
 | `location` | `str` | No |  |
 | `posted_date` | `str` | No |  |
 | `remote` | `bool` | No |  |
-| `requirement` | `list` | No |  |
+| `requirements` | `list` | No |  |
 | `salary` | `dict` | No |  |
 | `title` | `str` | No |  |
 
