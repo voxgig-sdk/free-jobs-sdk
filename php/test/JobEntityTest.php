@@ -40,7 +40,7 @@ class JobEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = FreeJobsConfig::make_config();
+        $cfg = FreeJobsConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = FreeJobsSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

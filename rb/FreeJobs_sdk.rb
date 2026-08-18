@@ -28,7 +28,7 @@ class FreeJobsSDK
     utility = FreeJobsUtility.new
     @_utility = utility
 
-    config = FreeJobsConfig.make_config
+    config = FreeJobsConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

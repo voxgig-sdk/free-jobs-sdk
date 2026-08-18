@@ -23,8 +23,8 @@ class FreeJobsSDK:
         utility = FreeJobsUtility()
         self._utility = utility
 
-        from freejobs_sdk.config import make_config
-        config = make_config()
+        from freejobs_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

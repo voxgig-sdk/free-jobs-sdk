@@ -40,7 +40,7 @@ class FreeJobsSDK
         $utility = new FreeJobsUtility();
         $this->_utility = $utility;
 
-        $config = FreeJobsConfig::make_config();
+        $config = FreeJobsConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

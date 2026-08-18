@@ -15,7 +15,7 @@ require_relative "../FreeJobs_sdk"
 module FreeJobsFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = FreeJobsConfig.make_config["feature"]
+    f = FreeJobsConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 
