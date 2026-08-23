@@ -87,18 +87,18 @@ job = client.Job()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `application_url` | `str` | No |  |
-| `company` | `str` | No |  |
-| `description` | `str` | No |  |
-| `employment_type` | `str` | No |  |
-| `id` | `str` | No |  |
-| `industry` | `str` | No |  |
-| `location` | `str` | No |  |
-| `posted_date` | `str` | No |  |
-| `remote` | `bool` | No |  |
-| `requirements` | `list` | No |  |
+| `application_url` | `str` | No | URL to apply for the job |
+| `company` | `str` | No | Company name |
+| `description` | `str` | No | Detailed job description |
+| `employment_type` | `str` | No | Type of employment |
+| `id` | `str` | No | Unique identifier for the job listing |
+| `industry` | `str` | No | Industry sector |
+| `location` | `str` | No | Job location |
+| `posted_date` | `str` | No | Date when the job was posted |
+| `remote` | `bool` | No | Whether the position is remote |
+| `requirements` | `list` | No | List of job requirements and qualifications |
 | `salary` | `dict` | No |  |
-| `title` | `str` | No |  |
+| `title` | `str` | No | Job title |
 
 ### Operations
 

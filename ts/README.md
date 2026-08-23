@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -287,18 +287,18 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `application_url` |  |
-| `company` |  |
-| `description` |  |
-| `employment_type` |  |
-| `id` |  |
-| `industry` |  |
-| `location` |  |
-| `posted_date` |  |
-| `remote` |  |
-| `requirements` |  |
+| `application_url` | URL to apply for the job |
+| `company` | Company name |
+| `description` | Detailed job description |
+| `employment_type` | Type of employment |
+| `id` | Unique identifier for the job listing |
+| `industry` | Industry sector |
+| `location` | Job location |
+| `posted_date` | Date when the job was posted |
+| `remote` | Whether the position is remote |
+| `requirements` | List of job requirements and qualifications |
 | `salary` |  |
-| `title` |  |
+| `title` | Job title |
 
 Operations: list.
 
@@ -323,18 +323,18 @@ Create an instance: `const job = client.Job()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `application_url` | `string` |  |
-| `company` | `string` |  |
-| `description` | `string` |  |
-| `employment_type` | `string` |  |
-| `id` | `string` |  |
-| `industry` | `string` |  |
-| `location` | `string` |  |
-| `posted_date` | `string` |  |
-| `remote` | `boolean` |  |
-| `requirements` | `any[]` |  |
+| `application_url` | `string` | URL to apply for the job |
+| `company` | `string` | Company name |
+| `description` | `string` | Detailed job description |
+| `employment_type` | `string` | Type of employment |
+| `id` | `string` | Unique identifier for the job listing |
+| `industry` | `string` | Industry sector |
+| `location` | `string` | Job location |
+| `posted_date` | `string` | Date when the job was posted |
+| `remote` | `boolean` | Whether the position is remote |
+| `requirements` | `any[]` | List of job requirements and qualifications |
 | `salary` | `Record<string, any>` |  |
-| `title` | `string` |  |
+| `title` | `string` | Job title |
 
 #### Example: List
 

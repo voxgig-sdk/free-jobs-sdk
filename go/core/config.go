@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "FreeJobs",
+			"slug": "free-jobs",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,42 +36,52 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "application_url",
+						"short": "URL to apply for the job",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "company",
+						"short": "Company name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Detailed job description",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "employment_type",
+						"short": "Type of employment",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the job listing",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "industry",
+						"short": "Industry sector",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "location",
+						"short": "Job location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "posted_date",
+						"short": "Date when the job was posted",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "remote",
+						"short": "Whether the position is remote",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "requirements",
+						"short": "List of job requirements and qualifications",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
@@ -77,6 +90,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "title",
+						"short": "Job title",
 						"type": "`$STRING`",
 					},
 				},

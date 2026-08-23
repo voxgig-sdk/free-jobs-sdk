@@ -6,7 +6,7 @@ The Golang SDK for the FreeJobs API — an entity-oriented client using standard
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Job(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -260,18 +260,18 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"application_url"` |  |
-| `"company"` |  |
-| `"description"` |  |
-| `"employment_type"` |  |
-| `"id"` |  |
-| `"industry"` |  |
-| `"location"` |  |
-| `"posted_date"` |  |
-| `"remote"` |  |
-| `"requirements"` |  |
+| `"application_url"` | URL to apply for the job |
+| `"company"` | Company name |
+| `"description"` | Detailed job description |
+| `"employment_type"` | Type of employment |
+| `"id"` | Unique identifier for the job listing |
+| `"industry"` | Industry sector |
+| `"location"` | Job location |
+| `"posted_date"` | Date when the job was posted |
+| `"remote"` | Whether the position is remote |
+| `"requirements"` | List of job requirements and qualifications |
 | `"salary"` |  |
-| `"title"` |  |
+| `"title"` | Job title |
 
 Operations: List.
 
@@ -296,18 +296,18 @@ Create an instance: `job := client.Job(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `application_url` | `string` |  |
-| `company` | `string` |  |
-| `description` | `string` |  |
-| `employment_type` | `string` |  |
-| `id` | `string` |  |
-| `industry` | `string` |  |
-| `location` | `string` |  |
-| `posted_date` | `string` |  |
-| `remote` | `bool` |  |
-| `requirements` | `[]any` |  |
+| `application_url` | `string` | URL to apply for the job |
+| `company` | `string` | Company name |
+| `description` | `string` | Detailed job description |
+| `employment_type` | `string` | Type of employment |
+| `id` | `string` | Unique identifier for the job listing |
+| `industry` | `string` | Industry sector |
+| `location` | `string` | Job location |
+| `posted_date` | `string` | Date when the job was posted |
+| `remote` | `bool` | Whether the position is remote |
+| `requirements` | `[]any` | List of job requirements and qualifications |
 | `salary` | `map[string]any` |  |
-| `title` | `string` |  |
+| `title` | `string` | Job title |
 
 #### Example: List
 

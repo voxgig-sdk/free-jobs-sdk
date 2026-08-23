@@ -93,18 +93,18 @@ job = client.Job
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `application_url` | `String` | No |  |
-| `company` | `String` | No |  |
-| `description` | `String` | No |  |
-| `employment_type` | `String` | No |  |
-| `id` | `String` | No |  |
-| `industry` | `String` | No |  |
-| `location` | `String` | No |  |
-| `posted_date` | `String` | No |  |
-| `remote` | `Boolean` | No |  |
-| `requirements` | `Array` | No |  |
+| `application_url` | `String` | No | URL to apply for the job |
+| `company` | `String` | No | Company name |
+| `description` | `String` | No | Detailed job description |
+| `employment_type` | `String` | No | Type of employment |
+| `id` | `String` | No | Unique identifier for the job listing |
+| `industry` | `String` | No | Industry sector |
+| `location` | `String` | No | Job location |
+| `posted_date` | `String` | No | Date when the job was posted |
+| `remote` | `Boolean` | No | Whether the position is remote |
+| `requirements` | `Array` | No | List of job requirements and qualifications |
 | `salary` | `Hash` | No |  |
-| `title` | `String` | No |  |
+| `title` | `String` | No | Job title |
 
 ### Operations
 

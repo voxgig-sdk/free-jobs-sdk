@@ -231,18 +231,18 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `application_url` |  |
-| `company` |  |
-| `description` |  |
-| `employment_type` |  |
-| `id` |  |
-| `industry` |  |
-| `location` |  |
-| `posted_date` |  |
-| `remote` |  |
-| `requirements` |  |
+| `application_url` | URL to apply for the job |
+| `company` | Company name |
+| `description` | Detailed job description |
+| `employment_type` | Type of employment |
+| `id` | Unique identifier for the job listing |
+| `industry` | Industry sector |
+| `location` | Job location |
+| `posted_date` | Date when the job was posted |
+| `remote` | Whether the position is remote |
+| `requirements` | List of job requirements and qualifications |
 | `salary` |  |
-| `title` |  |
+| `title` | Job title |
 
 Operations: List.
 
@@ -267,18 +267,18 @@ Create an instance: `local job = client:Job(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `application_url` | `string` |  |
-| `company` | `string` |  |
-| `description` | `string` |  |
-| `employment_type` | `string` |  |
-| `id` | `string` |  |
-| `industry` | `string` |  |
-| `location` | `string` |  |
-| `posted_date` | `string` |  |
-| `remote` | `boolean` |  |
-| `requirements` | `table` |  |
+| `application_url` | `string` | URL to apply for the job |
+| `company` | `string` | Company name |
+| `description` | `string` | Detailed job description |
+| `employment_type` | `string` | Type of employment |
+| `id` | `string` | Unique identifier for the job listing |
+| `industry` | `string` | Industry sector |
+| `location` | `string` | Job location |
+| `posted_date` | `string` | Date when the job was posted |
+| `remote` | `boolean` | Whether the position is remote |
+| `requirements` | `table` | List of job requirements and qualifications |
 | `salary` | `table` |  |
-| `title` | `string` |  |
+| `title` | `string` | Job title |
 
 #### Example: List
 

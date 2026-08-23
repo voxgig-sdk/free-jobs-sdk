@@ -237,18 +237,18 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `application_url` |  |
-| `company` |  |
-| `description` |  |
-| `employment_type` |  |
-| `id` |  |
-| `industry` |  |
-| `location` |  |
-| `posted_date` |  |
-| `remote` |  |
-| `requirements` |  |
+| `application_url` | URL to apply for the job |
+| `company` | Company name |
+| `description` | Detailed job description |
+| `employment_type` | Type of employment |
+| `id` | Unique identifier for the job listing |
+| `industry` | Industry sector |
+| `location` | Job location |
+| `posted_date` | Date when the job was posted |
+| `remote` | Whether the position is remote |
+| `requirements` | List of job requirements and qualifications |
 | `salary` |  |
-| `title` |  |
+| `title` | Job title |
 
 Operations: List.
 
@@ -273,18 +273,18 @@ Create an instance: `job = client.Job`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `application_url` | `String` |  |
-| `company` | `String` |  |
-| `description` | `String` |  |
-| `employment_type` | `String` |  |
-| `id` | `String` |  |
-| `industry` | `String` |  |
-| `location` | `String` |  |
-| `posted_date` | `String` |  |
-| `remote` | `Boolean` |  |
-| `requirements` | `Array` |  |
+| `application_url` | `String` | URL to apply for the job |
+| `company` | `String` | Company name |
+| `description` | `String` | Detailed job description |
+| `employment_type` | `String` | Type of employment |
+| `id` | `String` | Unique identifier for the job listing |
+| `industry` | `String` | Industry sector |
+| `location` | `String` | Job location |
+| `posted_date` | `String` | Date when the job was posted |
+| `remote` | `Boolean` | Whether the position is remote |
+| `requirements` | `Array` | List of job requirements and qualifications |
 | `salary` | `Hash` |  |
-| `title` | `String` |  |
+| `title` | `String` | Job title |
 
 #### Example: List
 

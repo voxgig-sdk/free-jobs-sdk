@@ -243,18 +243,18 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `application_url` |  |
-| `company` |  |
-| `description` |  |
-| `employment_type` |  |
-| `id` |  |
-| `industry` |  |
-| `location` |  |
-| `posted_date` |  |
-| `remote` |  |
-| `requirements` |  |
+| `application_url` | URL to apply for the job |
+| `company` | Company name |
+| `description` | Detailed job description |
+| `employment_type` | Type of employment |
+| `id` | Unique identifier for the job listing |
+| `industry` | Industry sector |
+| `location` | Job location |
+| `posted_date` | Date when the job was posted |
+| `remote` | Whether the position is remote |
+| `requirements` | List of job requirements and qualifications |
 | `salary` |  |
-| `title` |  |
+| `title` | Job title |
 
 Operations: List.
 
@@ -279,18 +279,18 @@ Create an instance: `job = client.Job()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `application_url` | `str` |  |
-| `company` | `str` |  |
-| `description` | `str` |  |
-| `employment_type` | `str` |  |
-| `id` | `str` |  |
-| `industry` | `str` |  |
-| `location` | `str` |  |
-| `posted_date` | `str` |  |
-| `remote` | `bool` |  |
-| `requirements` | `list` |  |
+| `application_url` | `str` | URL to apply for the job |
+| `company` | `str` | Company name |
+| `description` | `str` | Detailed job description |
+| `employment_type` | `str` | Type of employment |
+| `id` | `str` | Unique identifier for the job listing |
+| `industry` | `str` | Industry sector |
+| `location` | `str` | Job location |
+| `posted_date` | `str` | Date when the job was posted |
+| `remote` | `bool` | Whether the position is remote |
+| `requirements` | `list` | List of job requirements and qualifications |
 | `salary` | `dict` |  |
-| `title` | `str` |  |
+| `title` | `str` | Job title |
 
 #### Example: List
 

@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "FreeJobs",
+            "slug": "free-jobs",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -50,42 +53,52 @@ def make_config():
         "fields": [
           {
             "name": "application_url",
+            "short": "URL to apply for the job",
             "type": "`$STRING`",
           },
           {
             "name": "company",
+            "short": "Company name",
             "type": "`$STRING`",
           },
           {
             "name": "description",
+            "short": "Detailed job description",
             "type": "`$STRING`",
           },
           {
             "name": "employment_type",
+            "short": "Type of employment",
             "type": "`$STRING`",
           },
           {
             "name": "id",
+            "short": "Unique identifier for the job listing",
             "type": "`$STRING`",
           },
           {
             "name": "industry",
+            "short": "Industry sector",
             "type": "`$STRING`",
           },
           {
             "name": "location",
+            "short": "Job location",
             "type": "`$STRING`",
           },
           {
             "name": "posted_date",
+            "short": "Date when the job was posted",
             "type": "`$STRING`",
           },
           {
             "name": "remote",
+            "short": "Whether the position is remote",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "requirements",
+            "short": "List of job requirements and qualifications",
             "type": "`$ARRAY`",
           },
           {
@@ -94,6 +107,7 @@ def make_config():
           },
           {
             "name": "title",
+            "short": "Job title",
             "type": "`$STRING`",
           },
         ],

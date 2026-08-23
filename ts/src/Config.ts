@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'FreeJobs',
+        slug: "free-jobs",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -56,42 +67,52 @@ class Config {
       "fields": [
         {
           "name": "application_url",
+          "short": "URL to apply for the job",
           "type": "`$STRING`"
         },
         {
           "name": "company",
+          "short": "Company name",
           "type": "`$STRING`"
         },
         {
           "name": "description",
+          "short": "Detailed job description",
           "type": "`$STRING`"
         },
         {
           "name": "employment_type",
+          "short": "Type of employment",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the job listing",
           "type": "`$STRING`"
         },
         {
           "name": "industry",
+          "short": "Industry sector",
           "type": "`$STRING`"
         },
         {
           "name": "location",
+          "short": "Job location",
           "type": "`$STRING`"
         },
         {
           "name": "posted_date",
+          "short": "Date when the job was posted",
           "type": "`$STRING`"
         },
         {
           "name": "remote",
+          "short": "Whether the position is remote",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "requirements",
+          "short": "List of job requirements and qualifications",
           "type": "`$ARRAY`"
         },
         {
@@ -100,6 +121,7 @@ class Config {
         },
         {
           "name": "title",
+          "short": "Job title",
           "type": "`$STRING`"
         }
       ],

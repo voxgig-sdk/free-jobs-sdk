@@ -8,51 +8,61 @@ main: kit: entity: job: {
     {
       name: "application_url"
       req: false
+      short: "URL to apply for the job"
       type: "`$STRING`"
     }
     {
       name: "company"
       req: false
+      short: "Company name"
       type: "`$STRING`"
     }
     {
       name: "description"
       req: false
+      short: "Detailed job description"
       type: "`$STRING`"
     }
     {
       name: "employment_type"
       req: false
+      short: "Type of employment"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the job listing"
       type: "`$STRING`"
     }
     {
       name: "industry"
       req: false
+      short: "Industry sector"
       type: "`$STRING`"
     }
     {
       name: "location"
       req: false
+      short: "Job location"
       type: "`$STRING`"
     }
     {
       name: "posted_date"
       req: false
+      short: "Date when the job was posted"
       type: "`$STRING`"
     }
     {
       name: "remote"
       req: false
+      short: "Whether the position is remote"
       type: "`$BOOLEAN`"
     }
     {
       name: "requirements"
       req: false
+      short: "List of job requirements and qualifications"
       type: "`$ARRAY`"
     }
     {
@@ -63,6 +73,7 @@ main: kit: entity: job: {
     {
       name: "title"
       req: false
+      short: "Job title"
       type: "`$STRING`"
     }
   ]

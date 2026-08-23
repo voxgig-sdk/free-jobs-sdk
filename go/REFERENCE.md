@@ -98,18 +98,18 @@ fmt.Println(job.GetName()) // "job"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `application_url` | `string` | No |  |
-| `company` | `string` | No |  |
-| `description` | `string` | No |  |
-| `employment_type` | `string` | No |  |
-| `id` | `string` | No |  |
-| `industry` | `string` | No |  |
-| `location` | `string` | No |  |
-| `posted_date` | `string` | No |  |
-| `remote` | `bool` | No |  |
-| `requirements` | `[]any` | No |  |
+| `application_url` | `string` | No | URL to apply for the job |
+| `company` | `string` | No | Company name |
+| `description` | `string` | No | Detailed job description |
+| `employment_type` | `string` | No | Type of employment |
+| `id` | `string` | No | Unique identifier for the job listing |
+| `industry` | `string` | No | Industry sector |
+| `location` | `string` | No | Job location |
+| `posted_date` | `string` | No | Date when the job was posted |
+| `remote` | `bool` | No | Whether the position is remote |
+| `requirements` | `[]any` | No | List of job requirements and qualifications |
 | `salary` | `map[string]any` | No |  |
-| `title` | `string` | No |  |
+| `title` | `string` | No | Job title |
 
 ### Operations
 

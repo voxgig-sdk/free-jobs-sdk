@@ -36,60 +36,70 @@
               "active": true,
               "name": "application_url",
               "req": false,
+              "short": "URL to apply for the job",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "company",
               "req": false,
+              "short": "Company name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Detailed job description",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "employment_type",
               "req": false,
+              "short": "Type of employment",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the job listing",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "industry",
               "req": false,
+              "short": "Industry sector",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "location",
               "req": false,
+              "short": "Job location",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "posted_date",
               "req": false,
+              "short": "Date when the job was posted",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "remote",
               "req": false,
+              "short": "Whether the position is remote",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "requirements",
               "req": false,
+              "short": "List of job requirements and qualifications",
               "type": "`$ARRAY`"
             },
             {
@@ -102,6 +112,7 @@
               "active": true,
               "name": "title",
               "req": false,
+              "short": "Job title",
               "type": "`$STRING`"
             }
           ],
