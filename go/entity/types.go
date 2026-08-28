@@ -30,17 +30,12 @@ type Job struct {
 
 // JobListMatch is the typed request payload for Job.ListTyped.
 type JobListMatch struct {
-	ApplicationUrl *string `json:"application_url,omitempty"`
-	Company *string `json:"company,omitempty"`
-	Description *string `json:"description,omitempty"`
-	EmploymentType *string `json:"employment_type,omitempty"`
-	Id *string `json:"id,omitempty"`
 	Industry *string `json:"industry,omitempty"`
+	Limit *int `json:"limit,omitempty"`
 	Location *string `json:"location,omitempty"`
-	PostedDate *string `json:"posted_date,omitempty"`
-	Remote *bool `json:"remote,omitempty"`
-	Requirements *[]any `json:"requirements,omitempty"`
-	Salary *map[string]any `json:"salary,omitempty"`
+	Page *int `json:"page,omitempty"`
+	SalaryMax *float64 `json:"salary_max,omitempty"`
+	SalaryMin *float64 `json:"salary_min,omitempty"`
 	Title *string `json:"title,omitempty"`
 }
 

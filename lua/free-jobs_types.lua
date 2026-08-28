@@ -21,17 +21,12 @@
 ---@field title? string
 
 ---@class JobListMatch
----@field application_url? string
----@field company? string
----@field description? string
----@field employment_type? string
----@field id? string
 ---@field industry? string
+---@field limit? number
 ---@field location? string
----@field posted_date? string
----@field remote? boolean
----@field requirements? table
----@field salary? table
+---@field page? number
+---@field salary_max? number
+---@field salary_min? number
 ---@field title? string
 
 local M = {}

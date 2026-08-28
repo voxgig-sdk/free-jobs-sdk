@@ -32,17 +32,12 @@ class Job
 /** Request payload for Job#list. */
 class JobListMatch
 {
-    public ?string $application_url = null;
-    public ?string $company = null;
-    public ?string $description = null;
-    public ?string $employment_type = null;
-    public ?string $id = null;
     public ?string $industry = null;
+    public ?int $limit = null;
     public ?string $location = null;
-    public ?string $posted_date = null;
-    public ?bool $remote = null;
-    public ?array $requirements = null;
-    public ?array $salary = null;
+    public ?int $page = null;
+    public ?float $salary_max = null;
+    public ?float $salary_min = null;
     public ?string $title = null;
 }
 

@@ -63,53 +63,33 @@ Job = Struct.new(
 
 # Request payload for Job#list.
 #
-# @!attribute [rw] application_url
-#   @return [String, nil]
-#
-# @!attribute [rw] company
-#   @return [String, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] employment_type
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
 # @!attribute [rw] industry
 #   @return [String, nil]
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
 #
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] posted_date
-#   @return [String, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
 #
-# @!attribute [rw] remote
-#   @return [Boolean, nil]
+# @!attribute [rw] salary_max
+#   @return [Float, nil]
 #
-# @!attribute [rw] requirements
-#   @return [Array, nil]
-#
-# @!attribute [rw] salary
-#   @return [Hash, nil]
+# @!attribute [rw] salary_min
+#   @return [Float, nil]
 #
 # @!attribute [rw] title
 #   @return [String, nil]
 JobListMatch = Struct.new(
-  :application_url,
-  :company,
-  :description,
-  :employment_type,
-  :id,
   :industry,
+  :limit,
   :location,
-  :posted_date,
-  :remote,
-  :requirements,
-  :salary,
+  :page,
+  :salary_max,
+  :salary_min,
   :title,
   keyword_init: true
 )

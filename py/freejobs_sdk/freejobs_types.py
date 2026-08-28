@@ -32,15 +32,10 @@ class Job(TypedDict, total=False):
 
 
 class JobListMatch(TypedDict, total=False):
-    application_url: str
-    company: str
-    description: str
-    employment_type: str
-    id: str
     industry: str
+    limit: int
     location: str
-    posted_date: str
-    remote: bool
-    requirements: list
-    salary: dict
+    page: int
+    salary_max: float
+    salary_min: float
     title: str
