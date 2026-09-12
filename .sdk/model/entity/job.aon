@@ -6,6 +6,7 @@ main: kit: entity: job: {
 
   fields: [
     {
+      format: "uri"
       name: "application_url"
       req: false
       short: "URL to apply for the job"
@@ -48,6 +49,7 @@ main: kit: entity: job: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "posted_date"
       req: false
       short: "Date when the job was posted"
@@ -146,8 +148,10 @@ main: kit: entity: job: {
           }
           method: "GET"
           orig: "/jobs"
-          parts: [
-            "jobs"
+          segments: [
+            {
+              lit: "jobs"
+            }
           ]
           select: {
             exist: [

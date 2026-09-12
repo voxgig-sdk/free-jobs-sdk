@@ -36,6 +36,7 @@ func MakeConfig() map[string]any {
 			"job": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "uri",
 						"name": "application_url",
 						"short": "URL to apply for the job",
 						"type": "`$STRING`",
@@ -71,6 +72,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "posted_date",
 						"short": "Date when the job was posted",
 						"type": "`$STRING`",
@@ -94,6 +96,10 @@ func MakeConfig() map[string]any {
 						"short": "Job title",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "job",
 				"op": map[string]any{
@@ -153,8 +159,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/jobs",
-								"parts": []any{
-									"jobs",
+								"segments": []any{
+									map[string]any{
+										"lit": "jobs",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -171,6 +179,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"jobs",
+								},
 							},
 						},
 					},
@@ -181,6 +192,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

@@ -58,6 +58,7 @@ class FreeJobsConfig
         'job' => [
           'fields' => [
             [
+              'format' => 'uri',
               'name' => 'application_url',
               'short' => 'URL to apply for the job',
               'type' => '`$STRING`',
@@ -93,6 +94,7 @@ class FreeJobsConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'posted_date',
               'short' => 'Date when the job was posted',
               'type' => '`$STRING`',
@@ -116,6 +118,10 @@ class FreeJobsConfig
               'short' => 'Job title',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'job',
           'op' => [
@@ -175,8 +181,10 @@ class FreeJobsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/jobs',
-                  'parts' => [
-                    'jobs',
+                  'segments' => [
+                    [
+                      'lit' => 'jobs',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -192,6 +200,9 @@ class FreeJobsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'jobs',
                   ],
                 ],
               ],
