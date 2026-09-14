@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FreeJobsSDK } from '@voxgig-sdk/free-jobs'
+import { FreeJobsSDK } from '@voxgig-sdk/free-jobs-sdk'
 
 const client = new FreeJobsSDK()
 ```
@@ -425,7 +425,7 @@ free-jobs/
 Import the SDK from the package root:
 
 ```ts
-import { FreeJobsSDK } from '@voxgig-sdk/free-jobs'
+import { FreeJobsSDK } from '@voxgig-sdk/free-jobs-sdk'
 ```
 
 ### Entity state

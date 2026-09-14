@@ -105,7 +105,7 @@ local results, err = client:Job():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/free-jobs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/releases) |
+| TypeScript | `@voxgig-sdk/free-jobs-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/releases) |
 | Python | `voxgig-sdk-free-jobs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/releases) |
 | PHP | `voxgig-sdk/free-jobs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/free-jobs-sdk/go` | `go get github.com/voxgig-sdk/free-jobs-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Job():list()
 ### TypeScript
 
 ```ts
-import { FreeJobsSDK } from '@voxgig-sdk/free-jobs'
+import { FreeJobsSDK } from '@voxgig-sdk/free-jobs-sdk'
 
 const client = new FreeJobsSDK()
 
