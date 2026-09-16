@@ -4,7 +4,10 @@ declare(strict_types=1);
 // FreeJobs SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class FreeJobsFeatures
@@ -14,8 +17,14 @@ class FreeJobsFeatures
         switch ($name) {
             case "base":
                 return new FreeJobsBaseFeature();
+            case "ratelimit":
+                return new FreeJobsRatelimitFeature();
+            case "retry":
+                return new FreeJobsRetryFeature();
             case "test":
                 return new FreeJobsTestFeature();
+            case "timeout":
+                return new FreeJobsTimeoutFeature();
             default:
                 return new FreeJobsBaseFeature();
         }
@@ -31,7 +40,10 @@ class FreeJobsFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

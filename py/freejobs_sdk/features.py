@@ -1,12 +1,18 @@
 # FreeJobs SDK feature factory
 
 from freejobs_sdk.feature.base_feature import FreeJobsBaseFeature
+from freejobs_sdk.feature.ratelimit_feature import FreeJobsRatelimitFeature
+from freejobs_sdk.feature.retry_feature import FreeJobsRetryFeature
 from freejobs_sdk.feature.test_feature import FreeJobsTestFeature
+from freejobs_sdk.feature.timeout_feature import FreeJobsTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: FreeJobsBaseFeature(),
+    "ratelimit": lambda: FreeJobsRatelimitFeature(),
+    "retry": lambda: FreeJobsRetryFeature(),
     "test": lambda: FreeJobsTestFeature(),
+    "timeout": lambda: FreeJobsTimeoutFeature(),
 }
 
 
