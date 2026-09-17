@@ -105,12 +105,12 @@ local results, err = client:Job():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/free-jobs-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/releases) |
-| Python | `voxgig-sdk-free-jobs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/releases) |
-| PHP | `voxgig-sdk/free-jobs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/releases) |
+| TypeScript | `@voxgig-sdk/free-jobs-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/tags) |
+| Python | `voxgig-sdk-free-jobs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/tags) |
+| PHP | `voxgig-sdk/free-jobs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/free-jobs-sdk/go` | `go get github.com/voxgig-sdk/free-jobs-sdk/go@latest` |
-| Ruby | `voxgig-sdk-free-jobs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/releases) |
-| Lua | `voxgig-sdk-free-jobs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/releases) |
+| Ruby | `voxgig-sdk-free-jobs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/tags) |
+| Lua | `voxgig-sdk-free-jobs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/free-jobs-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/free-jobs-sdk/go-cli` | `go install github.com/voxgig-sdk/free-jobs-sdk/go-cli/cmd/free-jobs@latest` |
 | Go MCP server | `github.com/voxgig-sdk/free-jobs-sdk/go-mcp` | `go get github.com/voxgig-sdk/free-jobs-sdk/go-mcp@latest` |
 
