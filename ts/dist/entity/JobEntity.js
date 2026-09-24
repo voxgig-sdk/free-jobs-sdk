@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.JobEntity = void 0;
 const FreeJobsEntityBase_1 = require("../FreeJobsEntityBase");
-// TODO: needs Entity superclass
 class JobEntity extends FreeJobsEntityBase_1.FreeJobsEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

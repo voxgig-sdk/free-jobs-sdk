@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -113,65 +106,77 @@ class Config {
         "job": {
             "fields": [
                 {
-                    "format": "uri",
                     "name": "application_url",
+                    "title": "Application Url",
+                    "type": "`$STRING`",
                     "short": "URL to apply for the job",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "company",
-                    "short": "Company name",
-                    "type": "`$STRING`"
+                    "title": "Company",
+                    "type": "`$STRING`",
+                    "short": "Company name"
                 },
                 {
                     "name": "description",
-                    "short": "Detailed job description",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Detailed job description"
                 },
                 {
                     "name": "employment_type",
-                    "short": "Type of employment",
-                    "type": "`$STRING`"
+                    "title": "Employment Type",
+                    "type": "`$STRING`",
+                    "short": "Type of employment"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier for the job listing",
-                    "type": "`$STRING`"
+                    "title": "Id",
+                    "type": "`$STRING`",
+                    "short": "Unique identifier for the job listing"
                 },
                 {
                     "name": "industry",
-                    "short": "Industry sector",
-                    "type": "`$STRING`"
+                    "title": "Industry",
+                    "type": "`$STRING`",
+                    "short": "Industry sector"
                 },
                 {
                     "name": "location",
-                    "short": "Job location",
-                    "type": "`$STRING`"
+                    "title": "Location",
+                    "type": "`$STRING`",
+                    "short": "Job location"
                 },
                 {
-                    "format": "date-time",
                     "name": "posted_date",
+                    "title": "Posted Date",
+                    "type": "`$STRING`",
                     "short": "Date when the job was posted",
-                    "type": "`$STRING`"
+                    "format": "date-time"
                 },
                 {
                     "name": "remote",
-                    "short": "Whether the position is remote",
-                    "type": "`$BOOLEAN`"
+                    "title": "Remote",
+                    "type": "`$BOOLEAN`",
+                    "short": "Whether the position is remote"
                 },
                 {
                     "name": "requirements",
-                    "short": "List of job requirements and qualifications",
-                    "type": "`$ARRAY`"
+                    "title": "Requirements",
+                    "type": "`$ARRAY`",
+                    "short": "List of job requirements and qualifications"
                 },
                 {
                     "name": "salary",
+                    "title": "Salary",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "title",
-                    "short": "Job title",
-                    "type": "`$STRING`"
+                    "title": "Title",
+                    "type": "`$STRING`",
+                    "short": "Job title"
                 }
             ],
             "id": {
@@ -185,54 +190,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "industry",
-                                        "orig": "industry",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": 10,
-                                        "kind": "query",
-                                        "name": "limit",
-                                        "orig": "limit",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "location",
-                                        "orig": "location",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": 1,
-                                        "kind": "query",
-                                        "name": "page",
-                                        "orig": "page",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "salary_max",
-                                        "orig": "salary_max",
-                                        "type": "`$NUMBER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "salary_min",
-                                        "orig": "salary_min",
-                                        "type": "`$NUMBER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "title",
-                                        "orig": "title",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/jobs",
@@ -241,6 +198,62 @@ class Config {
                                     "lit": "jobs"
                                 }
                             ],
+                            "parts": [
+                                "jobs"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "industry",
+                                        "orig": "industry",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "limit",
+                                        "orig": "limit",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 10
+                                    },
+                                    {
+                                        "name": "location",
+                                        "orig": "location",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "page",
+                                        "orig": "page",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 1
+                                    },
+                                    {
+                                        "name": "salary_max",
+                                        "orig": "salary_max",
+                                        "type": "`$NUMBER`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "salary_min",
+                                        "orig": "salary_min",
+                                        "type": "`$NUMBER`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "title",
+                                        "orig": "title",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "industry",
@@ -251,14 +264,7 @@ class Config {
                                     "salary_min",
                                     "title"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "jobs"
-                            ]
+                            }
                         }
                     ]
                 }

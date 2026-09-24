@@ -19,7 +19,6 @@ import type {
   JobListMatch,
 } from '../FreeJobsTypes'
 
-// TODO: needs Entity superclass
 class JobEntity extends FreeJobsEntityBase<Job> {
 
   constructor(client: FreeJobsSDK, entopts: any) {

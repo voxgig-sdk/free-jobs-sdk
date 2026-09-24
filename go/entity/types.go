@@ -1,7 +1,7 @@
 // Typed models for the FreeJobs SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,18 +14,6 @@ import (
 
 // Job is the typed data model for the job entity.
 type Job struct {
-	ApplicationUrl *string `json:"application_url,omitempty"`
-	Company *string `json:"company,omitempty"`
-	Description *string `json:"description,omitempty"`
-	EmploymentType *string `json:"employment_type,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Industry *string `json:"industry,omitempty"`
-	Location *string `json:"location,omitempty"`
-	PostedDate *string `json:"posted_date,omitempty"`
-	Remote *bool `json:"remote,omitempty"`
-	Requirements *[]any `json:"requirements,omitempty"`
-	Salary *map[string]any `json:"salary,omitempty"`
-	Title *string `json:"title,omitempty"`
 }
 
 // JobListMatch is the typed request payload for Job.ListTyped.

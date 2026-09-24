@@ -90,65 +90,77 @@ func MakeConfig() map[string]any {
 			"job": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "uri",
 						"name": "application_url",
-						"short": "URL to apply for the job",
+						"title": "Application Url",
 						"type": "`$STRING`",
+						"short": "URL to apply for the job",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "company",
-						"short": "Company name",
+						"title": "Company",
 						"type": "`$STRING`",
+						"short": "Company name",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Detailed job description",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Detailed job description",
 					},
 					map[string]any{
 						"name": "employment_type",
-						"short": "Type of employment",
+						"title": "Employment Type",
 						"type": "`$STRING`",
+						"short": "Type of employment",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the job listing",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the job listing",
 					},
 					map[string]any{
 						"name": "industry",
-						"short": "Industry sector",
+						"title": "Industry",
 						"type": "`$STRING`",
+						"short": "Industry sector",
 					},
 					map[string]any{
 						"name": "location",
-						"short": "Job location",
+						"title": "Location",
 						"type": "`$STRING`",
+						"short": "Job location",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "posted_date",
-						"short": "Date when the job was posted",
+						"title": "Posted Date",
 						"type": "`$STRING`",
+						"short": "Date when the job was posted",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "remote",
-						"short": "Whether the position is remote",
+						"title": "Remote",
 						"type": "`$BOOLEAN`",
+						"short": "Whether the position is remote",
 					},
 					map[string]any{
 						"name": "requirements",
-						"short": "List of job requirements and qualifications",
+						"title": "Requirements",
 						"type": "`$ARRAY`",
+						"short": "List of job requirements and qualifications",
 					},
 					map[string]any{
 						"name": "salary",
+						"title": "Salary",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "title",
-						"short": "Job title",
+						"title": "Title",
 						"type": "`$STRING`",
+						"short": "Job title",
 					},
 				},
 				"id": map[string]any{
@@ -162,60 +174,68 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "industry",
-											"orig": "industry",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 10,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "location",
-											"orig": "location",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "salary_max",
-											"orig": "salary_max",
-											"type": "`$NUMBER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "salary_min",
-											"orig": "salary_min",
-											"type": "`$NUMBER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "title",
-											"orig": "title",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/jobs",
 								"segments": []any{
 									map[string]any{
 										"lit": "jobs",
+									},
+								},
+								"parts": []any{
+									"jobs",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "industry",
+											"orig": "industry",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 10,
+										},
+										map[string]any{
+											"name": "location",
+											"orig": "location",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+										map[string]any{
+											"name": "salary_max",
+											"orig": "salary_max",
+											"type": "`$NUMBER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "salary_min",
+											"orig": "salary_min",
+											"type": "`$NUMBER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "title",
+											"orig": "title",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -228,13 +248,6 @@ func MakeConfig() map[string]any {
 										"salary_min",
 										"title",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"jobs",
 								},
 							},
 						},

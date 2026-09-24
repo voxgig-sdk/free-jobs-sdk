@@ -98,65 +98,77 @@ module FreeJobsConfig
         "job" => {
           "fields" => [
             {
-              "format" => "uri",
               "name" => "application_url",
-              "short" => "URL to apply for the job",
+              "title" => "Application Url",
               "type" => "`$STRING`",
+              "short" => "URL to apply for the job",
+              "format" => "uri",
             },
             {
               "name" => "company",
-              "short" => "Company name",
+              "title" => "Company",
               "type" => "`$STRING`",
+              "short" => "Company name",
             },
             {
               "name" => "description",
-              "short" => "Detailed job description",
+              "title" => "Description",
               "type" => "`$STRING`",
+              "short" => "Detailed job description",
             },
             {
               "name" => "employment_type",
-              "short" => "Type of employment",
+              "title" => "Employment Type",
               "type" => "`$STRING`",
+              "short" => "Type of employment",
             },
             {
               "name" => "id",
-              "short" => "Unique identifier for the job listing",
+              "title" => "Id",
               "type" => "`$STRING`",
+              "short" => "Unique identifier for the job listing",
             },
             {
               "name" => "industry",
-              "short" => "Industry sector",
+              "title" => "Industry",
               "type" => "`$STRING`",
+              "short" => "Industry sector",
             },
             {
               "name" => "location",
-              "short" => "Job location",
+              "title" => "Location",
               "type" => "`$STRING`",
+              "short" => "Job location",
             },
             {
-              "format" => "date-time",
               "name" => "posted_date",
-              "short" => "Date when the job was posted",
+              "title" => "Posted Date",
               "type" => "`$STRING`",
+              "short" => "Date when the job was posted",
+              "format" => "date-time",
             },
             {
               "name" => "remote",
-              "short" => "Whether the position is remote",
+              "title" => "Remote",
               "type" => "`$BOOLEAN`",
+              "short" => "Whether the position is remote",
             },
             {
               "name" => "requirements",
-              "short" => "List of job requirements and qualifications",
+              "title" => "Requirements",
               "type" => "`$ARRAY`",
+              "short" => "List of job requirements and qualifications",
             },
             {
               "name" => "salary",
+              "title" => "Salary",
               "type" => "`$OBJECT`",
             },
             {
               "name" => "title",
-              "short" => "Job title",
+              "title" => "Title",
               "type" => "`$STRING`",
+              "short" => "Job title",
             },
           ],
           "id" => {
@@ -170,54 +182,6 @@ module FreeJobsConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "industry",
-                        "orig" => "industry",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => 10,
-                        "kind" => "query",
-                        "name" => "limit",
-                        "orig" => "limit",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "location",
-                        "orig" => "location",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => 1,
-                        "kind" => "query",
-                        "name" => "page",
-                        "orig" => "page",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "salary_max",
-                        "orig" => "salary_max",
-                        "type" => "`$NUMBER`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "salary_min",
-                        "orig" => "salary_min",
-                        "type" => "`$NUMBER`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "title",
-                        "orig" => "title",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/jobs",
@@ -226,6 +190,62 @@ module FreeJobsConfig
                       "lit" => "jobs",
                     },
                   ],
+                  "parts" => [
+                    "jobs",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "industry",
+                        "orig" => "industry",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "limit",
+                        "orig" => "limit",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 10,
+                      },
+                      {
+                        "name" => "location",
+                        "orig" => "location",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "page",
+                        "orig" => "page",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 1,
+                      },
+                      {
+                        "name" => "salary_max",
+                        "orig" => "salary_max",
+                        "type" => "`$NUMBER`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "salary_min",
+                        "orig" => "salary_min",
+                        "type" => "`$NUMBER`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "title",
+                        "orig" => "title",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "industry",
@@ -237,13 +257,6 @@ module FreeJobsConfig
                       "title",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "jobs",
-                  ],
                 },
               ],
             },
