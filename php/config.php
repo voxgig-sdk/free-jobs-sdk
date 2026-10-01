@@ -210,7 +210,7 @@ class FreeJobsConfig
                   'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.data`',
                   ],
                   'args' => [
                     'query' => [

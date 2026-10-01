@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 FreeJobsUtility.registrar = ->(u) {
   u.clean = FreeJobsUtilities::Clean
+  u.clean_add = FreeJobsUtilities::CleanAdd
+  u.clean_explain = FreeJobsUtilities::CleanExplain
   u.done = FreeJobsUtilities::Done
   u.make_error = FreeJobsUtilities::MakeError
   u.feature_add = FreeJobsUtilities::FeatureAdd

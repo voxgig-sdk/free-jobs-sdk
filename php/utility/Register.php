@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 FreeJobsUtility::setRegistrar(function (FreeJobsUtility $u): void {
     $u->clean = [FreeJobsClean::class, 'call'];
+    $u->clean_add = [FreeJobsClean::class, 'add'];
+    $u->clean_explain = [FreeJobsDone::class, 'clean_explain'];
     $u->done = [FreeJobsDone::class, 'call'];
     $u->make_error = [FreeJobsMakeError::class, 'call'];
     $u->feature_add = [FreeJobsFeatureAdd::class, 'call'];
