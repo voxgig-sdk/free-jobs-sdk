@@ -17,14 +17,18 @@ const PLAN = [
         "args": [],
         "select": {
             "industry": "v1",
-            "limit": "v1",
+            "limit": 10,
             "location": "v1",
-            "page": "v1",
+            "page": 1,
             "salary_max": "v1",
             "salary_min": "v1",
             "title": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "page",
             "limit",
@@ -34,37 +38,67 @@ const PLAN = [
             "salary_min",
             "salary_max"
         ],
+        "queryArgs": [
+            {
+                "name": "industry",
+                "wire": "industry"
+            },
+            {
+                "name": "limit",
+                "wire": "limit"
+            },
+            {
+                "name": "location",
+                "wire": "location"
+            },
+            {
+                "name": "page",
+                "wire": "page"
+            },
+            {
+                "name": "salary_max",
+                "wire": "salary_max"
+            },
+            {
+                "name": "salary_min",
+                "wire": "salary_min"
+            },
+            {
+                "name": "title",
+                "wire": "title"
+            }
+        ],
         "auth": null,
         "status": 200,
         "sample": {
             "success": true,
             "data": [
                 {
-                    "application_url": "https://example.com/apply/job_12345",
-                    "company": "Tech Corp Inc.",
-                    "description": "x",
-                    "employment_type": "full-time",
                     "id": "job_12345",
-                    "industry": "Technology",
+                    "title": "Senior Software Engineer",
+                    "company": "Tech Corp Inc.",
                     "location": "San Francisco, CA",
-                    "posted_date": "2023-10-15T10:30:00Z",
-                    "remote": false,
+                    "description": "x",
                     "requirements": [
                         "5+ years of experience",
                         "Bachelor's degree in Computer Science",
                         "Proficiency in Python and JavaScript"
                     ],
                     "salary": {
-                        "currency": "USD",
+                        "min": 100000,
                         "max": 150000,
-                        "min": 100000
+                        "currency": "USD"
                     },
-                    "title": "Senior Software Engineer"
+                    "industry": "Technology",
+                    "employment_type": "full-time",
+                    "remote": false,
+                    "posted_date": "2023-10-15T10:30:00Z",
+                    "application_url": "https://example.com/apply/job_12345"
                 }
             ],
             "pagination": {
-                "limit": 10,
                 "page": 1,
+                "limit": 10,
                 "total": 150,
                 "total_pages": 15
             }

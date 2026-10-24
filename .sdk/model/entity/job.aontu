@@ -165,16 +165,9 @@ main: kit: entity: job: {
           }
           m: "GET"
           o: "/jobs"
-          q: {
-            exist: [
-              "industry"
-              "limit"
-              "location"
-              "page"
-              "salary_max"
-              "salary_min"
-              "title"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

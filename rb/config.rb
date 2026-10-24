@@ -79,6 +79,7 @@ module FreeJobsConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -205,6 +206,7 @@ module FreeJobsConfig
                         "orig" => "industry",
                         "type" => "`$STRING`",
                         "kind" => "query",
+                        "field" => true,
                       },
                       {
                         "name" => "limit",
@@ -218,6 +220,7 @@ module FreeJobsConfig
                         "orig" => "location",
                         "type" => "`$STRING`",
                         "kind" => "query",
+                        "field" => true,
                       },
                       {
                         "name" => "page",
@@ -243,19 +246,14 @@ module FreeJobsConfig
                         "orig" => "title",
                         "type" => "`$STRING`",
                         "kind" => "query",
+                        "field" => true,
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "industry",
-                      "limit",
-                      "location",
-                      "page",
-                      "salary_max",
-                      "salary_min",
-                      "title",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

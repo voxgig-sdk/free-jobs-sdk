@@ -54,6 +54,53 @@ const utility_1 = require("../../utility");
         const ent = testsdk.Job();
         (0, node_assert_1.default)(null != ent);
     });
+    class FailHook extends __1.BaseFeature {
+        name = 'failhook';
+        version = '0.0.1';
+        active = true;
+        unexpected = 0;
+        init() { }
+        PreSpec() { throw new Error('job hook failed'); }
+        PreUnexpected() { this.unexpected++; }
+    }
+    (0, node_test_1.test)('stream-error', async () => {
+        const offline = { net: { offline: true } };
+        await node_assert_1.default.rejects(async () => {
+            for await (const _item of __1.FreeJobsSDK.test(offline).Job().stream('list')) { }
+        }, /offline/);
+        for await (const _item of __1.FreeJobsSDK.test(offline).Job()
+            .stream('list', undefined, { ctrl: { throw: false } })) { }
+        if (null != __1.config.feature?.rbac) {
+            const denied = __1.FreeJobsSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } });
+            await node_assert_1.default.rejects(async () => {
+                for await (const _item of denied.Job().stream('list')) { }
+            }, (err) => 'rbac_denied' === err.code);
+        }
+    });
+    (0, node_test_1.test)('stream-ctrl', async () => {
+        const explain = {};
+        const ctrl = { explain };
+        for await (const _item of __1.FreeJobsSDK.test().Job().stream('list', undefined, { ctrl })) { }
+        node_assert_1.default.deepStrictEqual(Object.keys(ctrl), ['explain']);
+        (0, node_assert_1.default)(explain === ctrl.explain && 0 < Object.keys(explain).length);
+    });
+    (0, node_test_1.test)('unexpected', async () => {
+        const hook = new FailHook();
+        const client = new __1.FreeJobsSDK({ feature: { test: { active: true } }, extend: [hook] });
+        await node_assert_1.default.rejects(client.Job().list(), /hook failed/);
+        (0, node_assert_1.default)(0 < hook.unexpected);
+        const fired = hook.unexpected;
+        node_assert_1.default.strictEqual(await client.Job().list(undefined, { throw: false }), undefined);
+        (0, node_assert_1.default)(fired < hook.unexpected);
+    });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.FreeJobsSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.Job().list({ "industry": 1 }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.FREE_JOBS_TEST_LIVE;
         for (const op of ['list']) {
@@ -62,7 +109,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "application_url": { "a": true, "fo": "uri", "h": "Application Url", "n": "application_url", "r": false, "sh": "URL to apply for the job", "t": "`$STRING`", "key$": "application_url", "index$": 0 }, "company": { "a": true, "h": "Company", "n": "company", "r": false, "sh": "Company name", "t": "`$STRING`", "key$": "company", "index$": 1 }, "description": { "a": true, "h": "Description", "n": "description", "r": false, "sh": "Detailed job description", "t": "`$STRING`", "key$": "description", "index$": 2 }, "employment_type": { "a": true, "h": "Employment Type", "n": "employment_type", "r": false, "sh": "Type of employment", "t": "`$STRING`", "key$": "employment_type", "index$": 3 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "sh": "Unique identifier for the job listing", "t": "`$STRING`", "key$": "id", "index$": 4 }, "industry": { "a": true, "h": "Industry", "n": "industry", "r": false, "sh": "Industry sector", "t": "`$STRING`", "key$": "industry", "index$": 5 }, "location": { "a": true, "h": "Location", "n": "location", "r": false, "sh": "Job location", "t": "`$STRING`", "key$": "location", "index$": 6 }, "posted_date": { "a": true, "fo": "date-time", "h": "Posted Date", "n": "posted_date", "r": false, "sh": "Date when the job was posted", "t": "`$STRING`", "key$": "posted_date", "index$": 7 }, "remote": { "a": true, "h": "Remote", "n": "remote", "r": false, "sh": "Whether the position is remote", "t": "`$BOOLEAN`", "key$": "remote", "index$": 8 }, "requirements": { "a": true, "h": "Requirements", "n": "requirements", "r": false, "sh": "List of job requirements and qualifications", "t": "`$ARRAY`", "key$": "requirements", "index$": 9 }, "salary": { "a": true, "h": "Salary", "n": "salary", "r": false, "t": "`$OBJECT`", "key$": "salary", "index$": 10 }, "title": { "a": true, "h": "Title", "n": "title", "r": false, "sh": "Job title", "t": "`$STRING`", "key$": "title", "index$": 11 } }, "id": { "field": "id", "name": "id" }, "name": "job", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /jobs", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "k": "query", "n": "industry", "or": "industry", "r": false, "t": "`$STRING`", "index$": 0 }, { "a": true, "ex": 10, "k": "query", "n": "limit", "or": "limit", "r": false, "t": "`$INTEGER`", "index$": 1 }, { "a": true, "k": "query", "n": "location", "or": "location", "r": false, "t": "`$STRING`", "index$": 2 }, { "a": true, "ex": 1, "k": "query", "n": "page", "or": "page", "r": false, "t": "`$INTEGER`", "index$": 3 }, { "a": true, "k": "query", "n": "salary_max", "or": "salary_max", "r": false, "t": "`$NUMBER`", "index$": 4 }, { "a": true, "k": "query", "n": "salary_min", "or": "salary_min", "r": false, "t": "`$NUMBER`", "index$": 5 }, { "a": true, "k": "query", "n": "title", "or": "title", "r": false, "t": "`$STRING`", "index$": 6 }] }, "k": "http", "m": "GET", "o": "/jobs", "q": { "exist": ["industry", "limit", "location", "page", "salary_max", "salary_min", "title"] }, "r": {}, "s": [{ "lit": "jobs" }], "t": { "req": "`reqdata`", "res": "`body.data`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "job", "name__orig": "job", "Name": "Job", "name_": "job", "name-": "job", "NAME": "JOB", "index$": 0 }, { "active": true, "entity": "job", "key$": "BasicJobFlow", "kind": "basic", "name": "BasicJobFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "job_ref01" } }], "index$": 0 }] }, 'Job', { "GET /jobs": { "protocol": "http", "parameters": [{ "name": "page", "in": "query", "description": "Page number for pagination", "required": false, "schema": { "type": "integer", "default": 1, "minimum": 1 }, "index$": 0 }, { "name": "limit", "in": "query", "description": "Number of results per page", "required": false, "schema": { "type": "integer", "default": 10, "minimum": 1, "maximum": 100 }, "index$": 1 }, { "name": "location", "in": "query", "description": "Filter jobs by location", "required": false, "schema": { "type": "string" }, "index$": 2 }, { "name": "title", "in": "query", "description": "Filter jobs by job title or keyword", "required": false, "schema": { "type": "string" }, "index$": 3 }, { "name": "industry", "in": "query", "description": "Filter jobs by industry sector", "required": false, "schema": { "type": "string" }, "index$": 4 }, { "name": "salary_min", "in": "query", "description": "Minimum salary filter", "required": false, "schema": { "type": "number" }, "index$": 5 }, { "name": "salary_max", "in": "query", "description": "Maximum salary filter", "required": false, "schema": { "type": "number" }, "index$": 6 }] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "application_url": { "a": true, "fo": "uri", "h": "Application Url", "n": "application_url", "r": false, "sh": "URL to apply for the job", "t": "`$STRING`", "key$": "application_url", "index$": 0 }, "company": { "a": true, "h": "Company", "n": "company", "r": false, "sh": "Company name", "t": "`$STRING`", "key$": "company", "index$": 1 }, "description": { "a": true, "h": "Description", "n": "description", "r": false, "sh": "Detailed job description", "t": "`$STRING`", "key$": "description", "index$": 2 }, "employment_type": { "a": true, "h": "Employment Type", "n": "employment_type", "r": false, "sh": "Type of employment", "t": "`$STRING`", "key$": "employment_type", "index$": 3 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "sh": "Unique identifier for the job listing", "t": "`$STRING`", "key$": "id", "index$": 4 }, "industry": { "a": true, "h": "Industry", "n": "industry", "r": false, "sh": "Industry sector", "t": "`$STRING`", "key$": "industry", "index$": 5 }, "location": { "a": true, "h": "Location", "n": "location", "r": false, "sh": "Job location", "t": "`$STRING`", "key$": "location", "index$": 6 }, "posted_date": { "a": true, "fo": "date-time", "h": "Posted Date", "n": "posted_date", "r": false, "sh": "Date when the job was posted", "t": "`$STRING`", "key$": "posted_date", "index$": 7 }, "remote": { "a": true, "h": "Remote", "n": "remote", "r": false, "sh": "Whether the position is remote", "t": "`$BOOLEAN`", "key$": "remote", "index$": 8 }, "requirements": { "a": true, "h": "Requirements", "n": "requirements", "r": false, "sh": "List of job requirements and qualifications", "t": "`$ARRAY`", "key$": "requirements", "index$": 9 }, "salary": { "a": true, "h": "Salary", "n": "salary", "r": false, "t": "`$OBJECT`", "key$": "salary", "index$": 10 }, "title": { "a": true, "h": "Title", "n": "title", "r": false, "sh": "Job title", "t": "`$STRING`", "key$": "title", "index$": 11 } }, "id": { "field": "id", "name": "id" }, "name": "job", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /jobs", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "k": "query", "n": "industry", "or": "industry", "r": false, "t": "`$STRING`", "index$": 0 }, { "a": true, "ex": 10, "k": "query", "n": "limit", "or": "limit", "r": false, "t": "`$INTEGER`", "index$": 1 }, { "a": true, "k": "query", "n": "location", "or": "location", "r": false, "t": "`$STRING`", "index$": 2 }, { "a": true, "ex": 1, "k": "query", "n": "page", "or": "page", "r": false, "t": "`$INTEGER`", "index$": 3 }, { "a": true, "k": "query", "n": "salary_max", "or": "salary_max", "r": false, "t": "`$NUMBER`", "index$": 4 }, { "a": true, "k": "query", "n": "salary_min", "or": "salary_min", "r": false, "t": "`$NUMBER`", "index$": 5 }, { "a": true, "k": "query", "n": "title", "or": "title", "r": false, "t": "`$STRING`", "index$": 6 }] }, "k": "http", "m": "GET", "o": "/jobs", "q": {}, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "jobs" }], "t": { "req": "`reqdata`", "res": "`body.data`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "job", "name__orig": "job", "Name": "Job", "name_": "job", "name-": "job", "NAME": "JOB", "index$": 0 }, { "active": true, "entity": "job", "key$": "BasicJobFlow", "kind": "basic", "name": "BasicJobFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "job_ref01" } }], "index$": 0 }] }, 'Job', { "GET /jobs": { "protocol": "http", "parameters": [{ "name": "page", "in": "query", "description": "Page number for pagination", "required": false, "schema": { "type": "integer", "default": 1, "minimum": 1 }, "index$": 0 }, { "name": "limit", "in": "query", "description": "Number of results per page", "required": false, "schema": { "type": "integer", "default": 10, "minimum": 1, "maximum": 100 }, "index$": 1 }, { "name": "location", "in": "query", "description": "Filter jobs by location", "required": false, "schema": { "type": "string" }, "index$": 2 }, { "name": "title", "in": "query", "description": "Filter jobs by job title or keyword", "required": false, "schema": { "type": "string" }, "index$": 3 }, { "name": "industry", "in": "query", "description": "Filter jobs by industry sector", "required": false, "schema": { "type": "string" }, "index$": 4 }, { "name": "salary_min", "in": "query", "description": "Minimum salary filter", "required": false, "schema": { "type": "number" }, "index$": 5 }, { "name": "salary_max", "in": "query", "description": "Maximum salary filter", "required": false, "schema": { "type": "number" }, "index$": 6 }] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -75,6 +122,11 @@ const utility_1 = require("../../utility");
         const job_ref01_list = (await job_ref01_ent.list(job_ref01_match)).map((e) => e.data());
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null
